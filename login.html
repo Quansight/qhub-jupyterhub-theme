@@ -1,6 +1,15 @@
 
 {% extends "page.html" %}
 
+{% block stylesheet %}
+<link rel="stylesheet" href="{{ static_url("css/style.min.css") }}" type="text/css"/>
+<style>
+.btn-jupyter {
+  background-color: rgb(98, 57, 209);
+}
+</style>
+{% endblock %}
+
 {% block login_widget %}
 {% endblock %}
 
