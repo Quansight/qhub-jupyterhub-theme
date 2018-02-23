@@ -3,9 +3,13 @@
 
 {% block stylesheet %}
 <link rel="stylesheet" href="{{ static_url("css/style.min.css") }}" type="text/css"/>
+
 <style>
-.btn-jupyter {
-  background-color: rgb(98, 57, 209);
+.logon-info {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  margin: auto auto 20% auto;
 }
 </style>
 {% endblock %}
@@ -16,8 +20,15 @@
 {% block main %}
 
 {% block login %}
-<div>Hello hello hello world</div>
 <div id="login-main" class="container">
+    <div class="logon-info">
+      <p>
+        Welcome to the Met Office Informatics Lab Jade service.
+      </p>
+      <p>
+        This service is an instance of <a href="https://pangeo-data.github.io">Pangeo</a>.
+      </p>
+    </div>
 {% if custom_html %}
 {{ custom_html | safe }}
 {% elif login_service %}
