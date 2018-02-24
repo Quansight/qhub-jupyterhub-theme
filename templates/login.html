@@ -33,6 +33,21 @@
 					{% if custom_html %}
 					{{ custom_html | safe }}
 					{% elif login_service %}
+
+					<div class="logon-info">
+						<p>
+						Welcome to <a href="http://www.informaticslab.co.uk/projects/jade.html" target="_new">Jade</a>, a data analysts platform for use by Met Office staff and partners.
+						</p>
+						<p>
+						This service is an instance of <a href="https://pangeo-data.github.io" target="_new">Pangeo</a>.
+						</p>
+						<p>
+						<i>If you were redirected here from jupyterhub.informaticslab.co.uk then simply log in and access the service as normal.</i>
+						</p>
+						<p>
+							<i>If you were redirected here from the legacy jupyter.informaticslab.co.uk then you will need to request your home directory is restored from the archive by emailing <a href="mailto:hello@informaticslab.co.uk">hello@informaticslab.co.uk</a>.</i>
+						</p>
+					</div>
 					<div class="container-login100-form-btn">
 					  <a role="button" class='login100-form-btn' href='{{authenticator_login_url}}'>
 						Sign in with {{login_service}}

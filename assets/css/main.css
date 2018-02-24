@@ -173,10 +173,11 @@ iframe {
 [  ]*/
 .login100-pic {
   width: 316px;
+  text-align: center;
 }
 
 .login100-pic img {
-  width: 316px;
+  width: 200px;
   max-width: 100%;
 }
 
@@ -199,8 +200,8 @@ iframe {
   padding-bottom: 54px;
 }
 
-#jade-logo {
-  width: 100px;
+.login100-form-title img {
+  width: 200px;
 }
 
 
@@ -306,7 +307,7 @@ iframe {
 }
 
 .login100-form-btn {
-  font-family: Montserrat-Bold;
+  font-family: Roboto;
   font-size: 15px;
   line-height: 1.5;
   color: #fff;
