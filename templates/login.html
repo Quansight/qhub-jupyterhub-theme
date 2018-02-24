@@ -20,13 +20,13 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<div class="login100-pic js-tilt" data-tilt>
+				<div class="login100-pic" data-tilt>
 					<img src="{{ static_url("custom/images/jupyter.svg") }}" alt="Jupyter">
 				</div>
 
 				<form class="login100-form validate-form">
 					<span class="login100-form-title">
-						<img src="{{ static_url("custom/images/jade-full.png") }}" alt="Jade">
+						<img src="{{ static_url("custom/images/jade-full.png") }}" id="jade-logo" alt="Jade">
 					</span>
 
 
@@ -91,13 +91,6 @@
 <!--===============================================================================================-->
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
-	<script >
-		$('.js-tilt').tilt({
-			scale: 1.1
-		})
-	</script>
 <!--===============================================================================================-->
 	<script src="{{ static_url("custom/js/main.js") }}"></script>
 
