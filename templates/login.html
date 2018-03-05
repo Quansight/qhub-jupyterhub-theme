@@ -26,7 +26,7 @@
 
 				<form class="login100-form validate-form">
 					<span class="login100-form-title">
-						<img src="{{ static_url("custom/images/jade-full.png") }}" id="jade-logo" alt="Jade">
+						<img src="{{ static_url("custom/images/pangeo-full.png") }}" id="Pangeo-logo" alt="Pangeo">
 					</span>
 
 
@@ -35,9 +35,13 @@
 					{% elif login_service %}
 
 					<div class="logon100-form-info">
-						Welcome to <a href="http://www.informaticslab.co.uk/projects/jade.html" target="_new">Jade</a>, a data analysts platform for use by Met Office staff and partners.<br /><br />
-						This service is an instance of <a href="https://pangeo-data.github.io" target="_new">Pangeo</a>.<br /><br />
-						<i>For assistance contact <a href="mailto:hello@informaticslab.co.uk">hello@informaticslab.co.uk</a></i>
+						 <a href="https://pangeo-data.github.io/" target="_new">Pangeo</a> is a community effort for big data geoscience.
+						 This <a href="https://jupyterhub.readthedocs.io" target="_new">JupyterHub</a> is a multi-user server for interactive data analysis running on <a href="https://cloud.google.com/" target="_new">Google Cloud Platform</a>.
+						<br /><br />
+						Acknowledgments: Pangeo is <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1740633&HistoricalAwards=false" target="_new">supported</a>, in part, by the <a href="https://www.nsf.gov/" target="_new">National Science Foundation (NSF)</a> and the <a href="https://www.earthcube.org/" target="_new">Earth Cube Program</a>.
+						Google provided compute credits on Google Compute Engine.
+						<br /><br />
+						<i>For assistance, please open a Github Issue <a href="https://github.com/pangeo-data/pangeo/issues">https://github.com/pangeo-data/pangeo/issues</a></i>
 					</div>
 					<div class="container-login100-form-btn">
 					  <a role="button" class='login100-form-btn' href='{{authenticator_login_url}}'>
