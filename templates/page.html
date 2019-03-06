@@ -1,0 +1,13 @@
+{% extends "templates/page.html" %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{{ static_url("extra-assets/css/pangeo-style.css") }}" type="text/css"/>
+<link rel="stylesheet" href="{{ static_url("css/style.min.css") }}" type="text/css"/>
+{% endblock %}
+
+{# requires jupyerhub > 0.9.4 https://github.com/jupyterhub/jupyterhub/pull/2296 #}
+{% block logo %}
+<span id="jupyterhub-logo" class="pull-left">
+    <a href="{{logo_url or base_url}}"><img src="{{static_url("extra-assets/images/jupyter_pangeo_small_logo.png") }}" alt='JupyterHub' class='jpy-logo' title='Home'/></a>
+</span>
+{% endblock %}
