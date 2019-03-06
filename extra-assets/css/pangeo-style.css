@@ -1,0 +1,64 @@
+@font-face {
+    font-family: "Panton Black Caps";
+    /* src: url("http://ff.cdn.1001fonts.net/p/a/panton.black-caps.otf") */
+    src: url("panton.black-caps.otf");
+}
+
+@font-face {
+    font-family: "Panton Light Caps";
+    src: url("panton.light-caps.otf");
+}
+
+.pangeo h1 {
+  color: #003B71;
+  font-family: "Panton Black Caps";
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.pangeo h2 {
+  font-family: "Panton Light Caps";
+  font-size: 2rem;
+  color: #003B71;
+  margin-bottom: 20px;
+}
+
+.pangeo p {
+  font-size: 1.7rem;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+
+.navbar.navbar-default {
+  background: -webkit-linear-gradient(left, #5eb130, #003B71); /* Chrome10+, Safari5.1+ */
+  background: linear-gradient(left, #5eb130, #003B71);
+  border: None;
+}
+
+.navbar.navbar-default .navbar-nav>li>a, .navbar.navbar-default .navbar-text {
+    color: #fff;
+}
+
+.navbar.navbar-default .navbar-nav>li>a:hover, .navbar.navbar-default .navbar-nav>li>a:focus {
+    background-color: #00a3b0;
+}
+
+.navbar.navbar-default .navbar-nav>.open>a, .navbar.navbar-default .navbar-nav>.open>a:hover, .navbar.navbar-default .navbar-nav>.open>a:focus  {
+    background-color: #00a3b0;
+}
+
+#login-main .auth-form-header {
+    background: #5EB130 !important;
+}
+
+
+.btn-jupyter {
+    color: #fff;
+    background-color: #E50051 !important;
+    border-color: #E50051 !important;
+}
+
+#login-main .service-login {
+    vertical-align: top !important;
+    padding-top: 60px;
+}
