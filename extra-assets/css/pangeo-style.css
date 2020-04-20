@@ -10,7 +10,7 @@
 }
 
 .pangeo h1 {
-  color: #003B71;
+  color: #652e8e;
   font-family: "Panton Black Caps";
   margin-top: 30px;
   margin-bottom: 30px;
@@ -19,7 +19,7 @@
 .pangeo h2 {
   font-family: "Panton Light Caps";
   font-size: 2rem;
-  color: #003B71;
+  color: #652e8e;
   margin-bottom: 20px;
 }
 
@@ -30,13 +30,13 @@
 
 
 .navbar.navbar-default {
-  background: -webkit-linear-gradient(left, #957da6, #4f4173); /* Chrome10+, Safari5.1+ */
-  background: linear-gradient(left, #957da6, #4f4173);
+  background: -webkit-linear-gradient(left, #4f4173, #957da6); /* Chrome10+, Safari5.1+ */
+  background: linear-gradient(left, #4f4173, #957da6);
   border: None;
 }
 
 .navbar.navbar-default .navbar-nav>li>a, .navbar.navbar-default .navbar-text {
-    color: #fff;
+    color: #E8E8E8;
 }
 
 .navbar.navbar-default .navbar-nav>li>a:hover, .navbar.navbar-default .navbar-nav>li>a:focus {
@@ -48,14 +48,14 @@
 }
 
 #login-main .auth-form-header {
-    background: #5EB130 !important;
+    background: #32C574 !important;
 }
 
 
 .btn-jupyter {
     color: #fff;
-    background-color: #E50051 !important;
-    border-color: #E50051 !important;
+    background-color: #32C574 !important;
+    border-color: #32C574 !important;
 }
 
 #login-main .service-login {
