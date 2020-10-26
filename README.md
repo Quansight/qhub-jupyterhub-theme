@@ -16,3 +16,20 @@ c.JupyterHub.logo_file = '/usr/local/share/jupyter/hub/static/custom/images/logo
 c.JupyterHub.template_paths = ['/usr/local/share/jupyter/hub/custom_templates/',
                                 '/usr/local/share/jupyter/hub/templates/']
 ```
+
+## Testing
+
+Install the development environment
+
+```shell
+conda env install -f environment.yaml
+```
+
+Anytime you make changes to `extra-assets` you will need to restart
+jupyterhub but any changes to `templates` will not require a restart.
+
+Run jupyterhub via the test script
+
+```shell
+./test.sh
+```
