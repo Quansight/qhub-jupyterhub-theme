@@ -14,7 +14,7 @@ c.JupyterHub.template_paths = [
 
 # QHUB will control these as ways to customize the template
 c.JupyterHub.template_vars = {
-    'pangeo_hub_title': 'this is a test title',
-    'pangeo_hub_subtitle': 'this is a subtitle',
-    'pangeo_welcome': 'this is a message to login page',
+    'hub_title': 'this is a test title',
+    'hub_subtitle': 'this is a subtitle',
+    'welcome': 'this is a message to login page',
 }
