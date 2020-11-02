@@ -1,18 +1,9 @@
-{% extends "templates/login.html" %}
-{% set announcement = '' %}
-
-{% block main %}
-<div class="container text-center pangeo">
-    <h1>{{ pangeo_hub_title or 'Pangeo JupyterHub' }}</h1>
-    <h2>{{ pangeo_hub_subtitle }}</h2>
+{% extends "templates/login.html" %} {% set announcement = '' %} {% block main %}
+<div class="container text-center main">
+    <h1>{{ hub_title or 'QHub' }}</h1>
+    <h2>{{ hub_subtitle }}</h2>
     <p>
-      {% if pangeo_welcome %}
-      {{ (pangeo_welcome | safe) }}
-      {% else %}
-      Welcome to this Pangeo JupyterHub. For more information about Pangeo,
-      visit <a href="http://pangeo.io">pangeo.io</a>.
-      {% endif %}
+        {% if welcome %} {{ (welcome | safe) }} {% else %} Welcome to this Qhub. For more information about QHub, visit <a href="https://qhub.dev/">qhub.dev</a>. {% endif %}
     </p>
 </div>
-{{ super() }}
-{% endblock %}
+{{ super() }} {% endblock %}
