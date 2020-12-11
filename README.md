@@ -1,21 +1,36 @@
-# Custom JupyterHub Templates for QHub
+# Custom JupyterHub Template for QHub
 
-This repo contains html jinja2 templates for customising the appearance of JupyterHub. Each HTML file here will override the files in `https://github.com/jupyterhub/jupyterhub/tree/master/share/jupyter/hub/templates`.
+This repo contains html jinja2 templates for customising the
+appearance of JupyterHub. Each HTML file here will override the files
+in https://github.com/jupyterhub/jupyterhub/tree/master/share/jupyter/hub/templates.
 
 ## Usage
 
-To use this repo ensure it is checked out and available somewhere that JupyterHub can find it. In thie example we will assume we have cloned it somewhere and created the following symlinks
-
-`/path/to/repo/templates` -> `/usr/local/share/jupyter/hub/custom_templates`
-`/path/to/repo/assets` -> `/usr/local/share/jupyter/hub/static/custom`
-
-Add the following to your JupyterHub config
+To use this repo ensure it is checked out and available somewhere that
+JupyterHub can find it. Add to the jupyterhub configuration to pickups
+the new jinja2 templates directory and static files.
 
 ```python
-c.JupyterHub.logo_file = '/usr/local/share/jupyter/hub/static/custom/images/logo.png'
-c.JupyterHub.template_paths = ['/usr/local/share/jupyter/hub/custom_templates/',
-                                '/usr/local/share/jupyter/hub/templates/']
+import tornado.web
+
+c.JupyterHub.extra_handlers = [
+    (r'/custom/(.*)', tornado.web.StaticFileHandler, {"path": "custom"}),
+]
+
+c.JupyterHub.template_paths = [
+    './templates',
+]
 ```
+
+Finally customize the templates via the `template_vars`. Current
+options are:
+ - `hub_title`
+ - `hub_subtitle`
+ - `welcome`
+ - `logo`
+ 
+Inspiration is in the test jupyterhub configuration
+`test_jupyterhub_config.py`.
 
 ## Testing
 
@@ -25,11 +40,9 @@ Install the development environment
 conda env install -f environment.yaml
 ```
 
-Anytime you make changes to `extra-assets` you will need to restart
-jupyterhub but any changes to `templates` will not require a restart.
-
-Run jupyterhub via the test script
+You do not need to restart jupyterhub to see changes in `custom` and
+`templates`. Run jupyterhub via the test script
 
 ```shell
-./test.sh
+jupyterhub --config test_jupyterhub_config.py
 ```
