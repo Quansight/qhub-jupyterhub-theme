@@ -9,7 +9,7 @@ c.JupyterHub.spawner_class = SimpleLocalProcessSpawner
 
 # Link static files along with templates
 c.JupyterHub.extra_handlers = [
-    (r'/custom/(.*)', tornado.web.StaticFileHandler, {"path": "./qhub_jupyterhub_theme/static"}),
+    (r'/custom/(.*)', tornado.web.StaticFileHandler, {"path": "./qhub_jupyterhub_theme/custom"}),
 ]
 
 c.JupyterHub.template_paths = [

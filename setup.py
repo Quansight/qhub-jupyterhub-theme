@@ -12,7 +12,7 @@ with open(os.path.join(here, "README.md"), encoding="utf-8") as f:
 
 setup(
     name="qhub_jupyterhub_theme",
-    version='0.2.0',
+    version='0.2.1',
     description="QHub jupyterhub theme",
     long_description=long_description,
     long_description_content_type="text/markdown",
