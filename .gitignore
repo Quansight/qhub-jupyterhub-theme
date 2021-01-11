@@ -3,3 +3,9 @@ share
 jupyterhub-proxy.pid
 jupyterhub.sqlite
 jupyterhub_cookie_secret
+
+# python
+dist
+build
+.git
+*.egg-info
