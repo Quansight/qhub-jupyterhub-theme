@@ -6,19 +6,25 @@ in https://github.com/jupyterhub/jupyterhub/tree/master/share/jupyter/hub/templa
 
 ## Usage
 
-To use this repo ensure it is checked out and available somewhere that
-JupyterHub can find it. Add to the jupyterhub configuration to pickups
-the new jinja2 templates directory and static files.
+Install `qhub_jupyterhub_theme` in your environment
+
+```shell
+pip install qhub_jupyterhub_theme
+```
+
+Add the following to the jupyterhub configuration to pickup the new
+jinja2 templates directory and static files.
 
 ```python
 import tornado.web
+import qhub_jupyterhub_theme
 
 c.JupyterHub.extra_handlers = [
-    (r'/custom/(.*)', tornado.web.StaticFileHandler, {"path": "custom"}),
+    (r'/custom/(.*)', tornado.web.StaticFileHandler, {"path": qhub_jupyterhub_theme.STATIC_PATH}),
 ]
 
 c.JupyterHub.template_paths = [
-    './templates',
+    qhub_jupyterhub_theme.TEMPLATE_PATH
 ]
 ```
 
@@ -31,6 +37,14 @@ options are:
  
 Inspiration is in the test jupyterhub configuration
 `test_jupyterhub_config.py`.
+
+```python
+c.JupyterHub.template_vars = {
+    'hub_title': 'This is QHub',
+    'hub_subtitle': 'your scalable open source data science laboratory.',
+    'welcome': 'have fun.',
+}
+```
 
 ## Testing
 
