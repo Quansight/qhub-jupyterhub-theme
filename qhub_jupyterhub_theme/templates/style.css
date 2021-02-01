@@ -10,7 +10,7 @@
 }
 
 .main h1 {
-    color: #652e8e;
+    color: {{ h1_color }};
     font-family: "Panton Black Caps";
     margin-top: 30px;
     margin-bottom: 30px;
@@ -19,7 +19,7 @@
 .main h2 {
     font-family: "Panton Light Caps";
     font-size: 2rem;
-    color: #652e8e;
+    color: {{ h2_color }};
     margin-bottom: 20px;
 }
 
@@ -29,9 +29,9 @@
 }
 
 .navbar.navbar-default {
-    background: -webkit-linear-gradient(left, #4f4173, #957da6);
+    background: -webkit-linear-gradient(left, {{ primary_color }}, {{ secondary_color }});
     /* Chrome10+, Safari5.1+ */
-    background: linear-gradient(left, #4f4173, #957da6);
+    background: linear-gradient(left, {{ primary_color }}, {{ secondary_color }});
     border: None;
 }
 
@@ -52,13 +52,13 @@
 }
 
 #login-main .auth-form-header {
-    background: #32C574 !important;
+    background: {{ accent_color }} !important;
 }
 
 .btn-jupyter {
     color: #fff;
-    background-color: #32C574 !important;
-    border-color: #32C574 !important;
+    background-color: {{ accent_color }} !important;
+    border-color: {{ accent_color }} !important;
 }
 
 #login-main .service-login {
