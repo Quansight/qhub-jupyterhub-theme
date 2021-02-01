@@ -22,4 +22,10 @@ c.JupyterHub.template_vars = {
     'hub_subtitle': 'your scalable open source data science laboratory.',
     'welcome': 'have fun.',
     'logo': '/hub/custom/images/jupyter_qhub_logo.svg',
+    'primary_color': '#4f4173',
+    'secondary_color': '#957da6',
+    'accent_color': '#423454',
+    'text_color': "#111111",
+    'h1_color': "#652e8e",
+    'h2_color': "#652e8e",
 }
