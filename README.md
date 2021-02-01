@@ -34,7 +34,13 @@ options are:
  - `hub_subtitle`
  - `welcome`
  - `logo`
- 
+ - `primary_color`
+ - `secondary_color`
+ - `accent_color'`
+ - `text_color`
+ - `h1_color`
+ - `h2_color`
+
 Inspiration is in the test jupyterhub configuration
 `test_jupyterhub_config.py`.
 

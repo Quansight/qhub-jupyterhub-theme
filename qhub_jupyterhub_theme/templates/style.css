@@ -1,16 +1,16 @@
 @font-face {
     font-family: "Panton Black Caps";
     /* src: url("http://ff.cdn.1001fonts.net/p/a/panton.black-caps.otf") */
-    src: url("panton.black-caps.otf");
+    src: url("/hub/custom/css/panton.black-caps.otf");
 }
 
 @font-face {
     font-family: "Panton Light Caps";
-    src: url("panton.light-caps.otf");
+    src: url("/hub/custom/css/panton.light-caps.otf");
 }
 
 .main h1 {
-    color: {{ h1_color }};
+    color: {{ h1_color | default("#4f4173") }};
     font-family: "Panton Black Caps";
     margin-top: 30px;
     margin-bottom: 30px;
@@ -18,20 +18,21 @@
 
 .main h2 {
     font-family: "Panton Light Caps";
-    font-size: 2rem;
-    color: {{ h2_color }};
+ p   font-size: 2rem;
+    color: {{ h2_color | default("#957da6") }};
     margin-bottom: 20px;
 }
 
 .main p {
     font-size: 1.7rem;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: {{ text_color | default("#333") }}
 }
 
 .navbar.navbar-default {
-    background: -webkit-linear-gradient(left, {{ primary_color }}, {{ secondary_color }});
+    background: -webkit-linear-gradient(left, {{ primary_color | default("#4f4173") }}, {{ secondary_color | default("#957da6g") }});
     /* Chrome10+, Safari5.1+ */
-    background: linear-gradient(left, {{ primary_color }}, {{ secondary_color }});
+    background: linear-gradient(left, {{ primary_color | default("#4f4173") }}, {{ secondary_color | default("#957da6") }});
     border: None;
 }
 
@@ -52,13 +53,13 @@
 }
 
 #login-main .auth-form-header {
-    background: {{ accent_color }} !important;
+    background: {{ accent_color | default("#32C574") }} !important;
 }
 
 .btn-jupyter {
     color: #fff;
-    background-color: {{ accent_color }} !important;
-    border-color: {{ accent_color }} !important;
+    background-color: {{ accent_color | default("#32C574") }} !important;
+    border-color: {{ accent_color | default("#32C574") }} !important;
 }
 
 #login-main .service-login {
