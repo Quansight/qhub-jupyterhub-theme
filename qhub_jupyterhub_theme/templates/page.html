@@ -1,5 +1,12 @@
 {% extends "templates/page.html" %}
 
+{% block nav_bar_left_items %}
+{{ super() }}
+{% if cdsdashboards_enabled %}
+<li><a href="{{ base_url }}dashboards">Dashboards</a></li>
+{% endif %}
+{% endblock %}
+
 {% block stylesheet %}
 <link rel="stylesheet" href="{{ static_url("css/style.min.css") }}" type="text/css"/>
 <style>
