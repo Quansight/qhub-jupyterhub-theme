@@ -12,6 +12,10 @@
 <style>
   {% include 'style.css' %}
 </style>
+
+  {% if cdsdashboards_enabled %}
+  <link rel="stylesheet" href="{{base_url}}dashboards-static/css/style.css" type="text/css" />
+  {% endif %}
 {% endblock %}
 
 {# requires jupyerhub > 0.9.4 https://github.com/jupyterhub/jupyterhub/pull/2296 #} {% block logo %}
