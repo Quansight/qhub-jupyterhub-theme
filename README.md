@@ -40,7 +40,10 @@ options are:
  - `text_color`
  - `h1_color`
  - `h2_color`
+
+ Internal options:
  - `cdsdashboards_enabled`
+ - `cdsdashboards_restricted`
 
 Inspiration is in the test jupyterhub configuration
 `test_jupyterhub_config.py`.
