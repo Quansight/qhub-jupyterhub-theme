@@ -1,3 +1,5 @@
+**Please submit issues to https://github.com/quansight/qhub/issues**
+
 # Custom JupyterHub Template for QHub
 
 This repo contains html jinja2 templates for customising the
