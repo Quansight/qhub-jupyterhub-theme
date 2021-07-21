@@ -1,0 +1,435 @@
+<div id="chat-circle" class="btn-raised">
+    <svg class="icon-speech" viewBox="0 0 48 48">
+      <use xlink:href="#icon-speech" />
+    </svg>
+  </div>
+  
+  <div class="chatbot chatbot--closed">
+    <div class="chatbot__header">
+      <p>
+        <strong>Got a question?</strong>
+        <span class="u-text-highlight">Ask Elastech</span>
+      </p>
+      <svg class="chatbot__close-button icon-speech" viewBox="0 0 32 32">
+        <use xlink:href="#icon-speech" />
+      </svg>
+      <svg class="chatbot__close-button icon-close" viewBox="0 0 32 32">
+        <use xlink:href="#icon-close" />
+      </svg>
+    </div>
+    <div class="chatbot__message-window">
+      <ul class="chatbot__messages">
+        <li class="is-ai animation">
+          <div class="is-ai__profile-picture">
+            <svg class="icon-avatar" viewBox="0 0 32 32">
+              <use xlink:href="#avatar" />
+            </svg>
+          </div>
+          <span class="chatbot__arrow chatbot__arrow--left"></span>
+          <p class="chatbot__message">
+            <strong class="intro">Hello, I’m Elastech, your virtual assistant. I'm here to help
+              with your general enquiries.</strong>Example of questions you can ask for demo purpose: <br /><em>Hi / Bye ?
+            </em>
+          </p>
+        </li>
+        <!-- Message here -->
+      </ul>
+      </class>
+    </div>
+    <div class="vidf">
+      <div class="videoOff" onclick="turnOffvideoCall()">X</div>
+      <iframe allow="camera; microphone; display-capture" src="https://meet.jit.si/elastectsupport" true=""
+        style="height: 400px; width: 100%; border: 0px;"></iframe>
+    </div>
+    <div class="chatbot__entry chatbot--closed">
+      <input type="text" class="chatbot__input" placeholder="Write a message..." />
+      <svg class="chatbot__submit" viewBox="0 0 32 32">
+        <use xlink:href="#icon-send" />
+      </svg>
+    </div>
+  </div>
+  
+  <!-- Symbols -->
+  <svg>
+    <!-- Close icon -->
+    <symbol id="icon-close" viewBox="0 0 32 32">
+      <title>Close</title>
+      <path d="M2.624 8.297l2.963-2.963 23.704 23.704-2.963 2.963-23.704-23.704z" />
+      <path d="M2.624 29.037l23.704-23.704 2.963 2.963-23.704 23.704-2.963-2.963z" />
+    </symbol>
+  
+    <!-- Speech icon -->
+    <symbol id="icon-speech" viewBox="0 0 32 32">
+      <title>Speech</title>
+      <path style="fill: #ffffff; fill-rule: evenodd"
+        d="M21.795 5.333h-11.413c-0.038 0-0.077 0-0.114 0l-0.134 0.011v2.796c0.143-0.006 0.273-0.009 0.385-0.009h11.277c0.070 0 7.074 0.213 7.074 7.695 0 5.179-2.956 7.695-9.036 7.695h-3.792c-0.691 0-1.12 0.526-1.38 1.159l-1.387 3.093-1.625 3.77 0.245 0.453h2.56l2.538-5.678h2.837c7.633 0 11.84-3.727 11.84-10.494 0.001-8.564-7.313-10.492-9.875-10.492z" />
+      <path style="fill: #ffffff; fill-rule: evenodd"
+        d="M10.912 24.259c-0.242-0.442-0.703-0.737-1.234-0.737-0 0-0 0-0 0h-0.56c-0.599-0.011-1.171-0.108-1.71-0.28l0.042 0.012c-1.82-0.559-4.427-2.26-4.427-7.424 0-6.683 5.024-7.597 7.109-7.686v-2.8c-2.042 0.095-9.91 1.067-9.91 10.483 0 4.832 1.961 7.367 3.606 8.64 1.38 1.067 3.109 1.744 4.991 1.843l0.033 0.019 2.805 5.211 1.41-3.273z" />
+    </symbol>
+  
+    <!-- Send icon -->
+    <symbol id="icon-send" viewBox="0 0 23.97 21.9">
+      <title>Send</title>
+      <path d="M0.31,9.43a0.5,0.5,0,0,0,0,.93l8.3,3.23L23.15,0Z" />
+      <path d="M9,14.6H9V21.4a0.5,0.5,0,0,0,.93.25L13.22,16l6,3.32A0.5,0.5,0,0,0,20,19l4-18.4Z" />
+    </symbol>
+  
+    <!-- Avatar icon -->
+    <symbol id="avatar" width="40" height="30">
+      <title>Avatar</title>
+      <image width="40" height="30"
+        xlink:href="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Eo_circle_cyan_white_letter-e.svg/480px-Eo_circle_cyan_white_letter-e.svg.png">
+      </image>
+    </symbol>
+  </svg>
+  <script src="https://unpkg.com/node-sql-parser/umd/mysql.umd.js"></script>
+  <script>
+    const sessionId = "1";
+    const loader = `<span class='loader'><span class='loader__dot'></span><span class='loader__dot'></span><span class='loader__dot'></span></span>`;
+    const errorMessage = "My apologies, I'm not available at the moment. =^.^=";
+    const urlPattern = /(\b(http?|https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
+    const loadingDelay = 700;
+    const aiReplyDelay = 1800;
+  
+    const $document = document;
+    const $chatbot = $document.querySelector(".chatbot");
+    const $chatbotMessageWindow = $document.querySelector(
+      ".chatbot__message-window"
+    );
+    const $chatbotHeader = $document.querySelector(".chatbot__header");
+    const $chatbotMessages = $document.querySelector(".chatbot__messages");
+    const $chatbotInput = $document.querySelector(".chatbot__input");
+    const $chatbotSubmit = $document.querySelector(".chatbot__submit");
+    const $agent = document.getElementsByClassName("agent");
+  
+    document.addEventListener(
+      "keypress",
+      (event) => {
+        if (event.which == 13) {
+          validateMessage();
+        }
+      },
+      false
+    );
+  
+    $chatbotHeader.addEventListener(
+      "click",
+      () => {
+        // toggle($chatbot, "chatbot--closed");
+        // $chatbotInput.focus();
+        var element = document.getElementsByClassName("chatbot");
+        element[0].style.display = "none";
+        document.getElementById("chat-circle").style.display = "block";
+      },
+      false
+    );
+  
+    $chatbotSubmit.addEventListener(
+      "click",
+      () => {
+        validateMessage();
+      },
+      false
+    );
+    document.getElementById("chat-circle").addEventListener("click", () => {
+      var element = document.getElementsByClassName("chatbot");
+      element[0].classList.remove("chatbot--closed");
+      element[0].style.display = "block";
+      $chatbotInput.focus();
+      console.log(this);
+      document.getElementById("chat-circle").style.display = "none";
+    });
+    const toggle = (element, klass) => {
+      const classes = element.className.match(/\S+/g) || [],
+        index = classes.indexOf(klass);
+      index >= 0 ? classes.splice(index, 1) : classes.push(klass);
+      element.className = classes.join(" ");
+    };
+  
+    const userMessage = (content) => {
+      $chatbotMessages.innerHTML += `<li class='is-user animation'>
+        <p class='chatbot__message'>
+          ${content}
+        </p>
+        <span class='chatbot__arrow chatbot__arrow--right'></span>
+      </li>`;
+    };
+  
+    let show_chat_support_opt = false
+    const aiMessage = (content, isLoading = false, delay = 0) => {
+      // $agent.remove()
+      setTimeout(() => {
+        removeLoader();
+        $chatbotMessages.innerHTML += `<li
+        class='is-ai animation'
+        id='${isLoading ? "is-loading" : ""}'>
+          <div class="is-ai__profile-picture">
+            <svg class="icon-avatar" viewBox="0 0 32 32">
+              <use xlink:href="#avatar" />
+            </svg>
+          </div>
+          <span class='chatbot__arrow chatbot__arrow--left'></span>
+          <div class='chatbot__message'>
+            ${content}
+          </div>
+        </li>`;
+        if (!isLoading && show_chat_support_opt) {
+          show_chat_support_opt = false;
+          $chatbotMessages.innerHTML += `
+          <div class="action-btns"> 
+            <button onclick="supportagent(true)" class="agent agent-button">Connect with <i class="fa fa-user" aria-hidden="true"></i></button>
+            <button onclick="supportagentvideo(true)" class="agent agent-button">Connect with <i class="fa fa-video-camera" aria-hidden="true"></i></button>
+          </div>
+          `;
+        }
+        scrollDown()
+      }, delay);
+    };
+  
+    const supportagent = (sa) => {
+      support = true;
+      aiMessage("Connecting you to a human agent...");
+      setTimeout(() => {
+        aiMessage("You are now connected with our developer");
+        aiMessage("Hi, user how can i help you?");
+      }, 3000);
+    }
+  
+    const supportagentvideo = (sa) => {
+      aiMessage("Connecting you to a video support agent...");
+      $document.querySelector(".vidf").style.display = "block";
+    }
+  
+    const turnOffvideoCall = () => {
+      aiMessage("Thank you for connecting with our agent. Hope that it was helpful.");
+      $document.querySelector(".vidf").style.display = "none";
+    }
+  
+    const removeLoader = () => {
+      let loadingElem = document.getElementById("is-loading");
+      if (loadingElem) {
+        $chatbotMessages.removeChild(loadingElem);
+      }
+    };
+  
+    const escapeScript = (unsafe) => {
+      const safeString = unsafe
+        .replace(/</g, " ")
+        .replace(/>/g, " ")
+        .replace(/&/g, " ")
+        .replace(/"/g, " ")
+        .replace(/\\/, " ")
+        .replace(/\s+/g, " ");
+      return safeString.trim();
+    };
+  
+    const linkify = (inputText) => {
+      return inputText.replace(
+        urlPattern,
+        `<a href='$1' target='_blank'>$1</a>`
+      );
+    };
+  
+    const validateMessage = () => {
+      const text = $chatbotInput.value;
+      const safeText = text ? escapeScript(text) : "";
+      if (safeText.length && safeText !== " ") {
+        resetInputField();
+        userMessage(safeText);
+        send(safeText);
+      }
+      scrollDown();
+      return;
+    };
+  
+    const multiChoiceAnswer = (text) => {
+      const decodedText = text.replace(/zzz/g, "'");
+      userMessage(decodedText);
+      send(decodedText);
+      scrollDown();
+      return;
+    };
+  
+    const processResponse = (val) => {
+      removeLoader();
+      console.log(val);
+      let output = "";
+      // let parsedText = linkify(val.text);
+      // console.log(parsedText);
+      output += `<p>${val}</p>`;
+      return output;
+    };
+  
+    const setResponse = (val, delay = 0) => {
+      setTimeout(() => {
+        aiMessage(processResponse(val));
+      }, delay);
+    };
+  
+    const resetInputField = () => {
+      $chatbotInput.value = "";
+    };
+  
+    const scrollDown = () => {
+      let distanceToScroll =
+        $chatbotMessageWindow.scrollHeight -
+        ($chatbotMessages.lastChild.offsetHeight + 60);
+      if (!distanceToScroll) {
+        distanceToScroll = $chatbotMessageWindow.scrollHeight - ($chatbotMessages.lastElementChild.offsetHeight + 60);
+      }
+      $chatbotMessageWindow.scrollTop = distanceToScroll;
+      return false;
+    };
+  
+    let support = false; // Set to true for testing slack directly
+    // Slack Messages related variables
+    let slackChannel = "";
+    let slackTS = "";
+    let slackCurrentUser = "";
+  
+    var ws = new WebSocket("ws://52.12.141.34:5000/ws");
+    ws.onmessage = function (evt) {
+      var received_msg = JSON.parse(evt.data);
+      if (received_msg.user !== slackCurrentUser) aiMessage(received_msg.text)
+      // aiMessage(received_msg.text);
+    };
+  
+    const send = (text = "") => {
+      if (text.includes('SQL query')) {
+        fetch("http://52.12.141.34:5000/sqlValidator", {
+          method: "POST",
+          // mode: "no-cors",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ 'message': text }),
+        })
+          .then((response) => response.json())
+          .then((res) => {
+            if (res.status < 200 || res.status >= 300) {
+              let error = new Error(res.statusText);
+              throw error;
+            }
+            return res;
+          })
+          .then((res) => {
+            if (res.valid) {
+              setResponse('Perfect! Your SQL query is a valid one🎉');
+            } else {
+              show_chat_support_opt = true
+              setResponse('Oops!! Invalid Syntax. Would you like to connect with our experts?');
+            }
+          });
+      }
+      else if (text.includes('Cost')) {
+        fetch("http://52.12.141.34:5000/cloudCostings", {
+          method: "POST",
+          // mode: "no-cors",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ 'message': text }),
+        })
+          .then((response) => response.json())
+          .then((res) => {
+            if (res.status < 200 || res.status >= 300) {
+              let error = new Error(res.statusText);
+              throw error;
+            }
+            return res;
+          })
+          .then((res) => {
+            let costMsg = `Sorry at the moment no cost is available for the requested service. Availbale Cost Params:<br>
+            - Cost:Daily<br>
+            - Cost:Services<br>
+            - Cost:Monthly`;
+            if (res.cost) {
+              if (res.type === 'services') {
+                costMsg = `Your ${res.type.toUpperCase()} Cost are as follows:`;
+                const services = Object.keys(res.cost);
+                services.forEach(s => {
+                  costMsg += `<br>- ${s}: $${res.cost[s]}`;
+                });
+              } else {
+                costMsg = `Your ${res.type.toUpperCase()} Cost is $${res.cost}`;
+              }
+            }
+            setResponse(costMsg, loadingDelay + aiReplyDelay);
+          });
+      }
+      else if (text.includes('help')) {
+        setResponse(`I can help you with multiple things, here are few of them:<br>
+        1. Ask me to validate your SQL query using the keyword<br>
+        - SQL query: your_defined_query<br><br>
+        2. I can help you fetch your cloud costs, to fetch your daily|all services|monthly cost keywords are<br>
+        - Cost:Daily<br>
+        - Cost:Services<br>
+        - Cost:Monthly`);
+      }
+      else {
+        if (support) {
+          var slackReqBody = { message: text };
+          if (slackChannel) slackReqBody['channel'] = slackChannel;
+          if (slackTS) slackReqBody['ts'] = slackTS;
+          fetch("http://52.12.141.34:5000/slack/message", {
+            method: "POST",
+            // mode: "no-cors",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(slackReqBody),
+          })
+            .then((response) => response.json())
+            .then((res) => {
+              if (res.status < 200 || res.status >= 300) {
+                let error = new Error(res.statusText);
+                throw error;
+              }
+              return res;
+            })
+            .then((res) => {
+              slackChannel = res.channel;
+              slackTS = res.ts;
+              slackCurrentUser = res.user;
+            });
+        }
+        else {
+          fetch("http://52.12.141.34:5000/message", {
+            method: "POST",
+            // mode: "no-cors",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ message: text, sender: '1231241dcd123' }),
+          })
+            .then((response) => response.json())
+            .then((res) => {
+              if (res.status < 200 || res.status >= 300) {
+                let error = new Error(res.statusText);
+                throw error;
+              }
+              return res;
+            })
+            .then((res) => {
+              console.log('Got the response from agent:', JSON.parse(res)[0])
+              const text = JSON.parse(res)[0].text;
+              setResponse(text, loadingDelay + aiReplyDelay);
+            })
+            .catch((error) => {
+              console.log('Activate the slack agent option');
+              show_chat_support_opt = true;
+              setResponse(errorMessage, loadingDelay + aiReplyDelay);
+              resetInputField();
+              console.log(error);
+            });
+  
+          aiMessage(loader, true, loadingDelay);
+        }
+      }
+    };
+  </script>
+  

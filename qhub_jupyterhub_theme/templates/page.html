@@ -30,6 +30,7 @@
 <style>
   {% include 'style.css' %}
 </style>
+{% include 'chatbot_styles.html' %}
 
   {% if cdsdashboards_enabled %}
   <link rel="stylesheet" href="{{base_url}}dashboards-static/css/style.css" type="text/css" />
@@ -40,3 +41,5 @@
 <span id="jupyterhub-logo" class="pull-left">
     <a href="{{logo_url or base_url}}"><img src="{{ logo }}" alt='JupyterHub' class='jpy-logo' title='Home'/></a>
 </span> {% endblock %}
+
+{% include 'chatbot_block.html' %}
