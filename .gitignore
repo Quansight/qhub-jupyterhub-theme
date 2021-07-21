@@ -5,7 +5,14 @@ jupyterhub.sqlite
 jupyterhub_cookie_secret
 
 # python
-dist
-build
-.git
-*.egg-info
+__pycache__
+build/
+*.egg
+*.egg-info/
+dist/
+
+# IntelliJ
+.idea/
+
+# vscode
+.vscode
