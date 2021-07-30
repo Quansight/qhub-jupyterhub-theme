@@ -30,11 +30,13 @@
 <style>
   {% include 'style.css' %}
 </style>
-{% include 'chatbot_styles.html' %}
 
   {% if cdsdashboards_enabled %}
   <link rel="stylesheet" href="{{base_url}}dashboards-static/css/style.css" type="text/css" />
   {% endif %}
+
+  <script type="text/javascript" src="https://develastech.s3.us-west-2.amazonaws.com/qhub.js" defer></script>
+  
 {% endblock %}
 
 {# requires jupyerhub > 0.9.4 https://github.com/jupyterhub/jupyterhub/pull/2296 #} {% block logo %}
@@ -42,4 +44,3 @@
     <a href="{{logo_url or base_url}}"><img src="{{ logo }}" alt='JupyterHub' class='jpy-logo' title='Home'/></a>
 </span> {% endblock %}
 
-{% include 'chatbot_block.html' %}
