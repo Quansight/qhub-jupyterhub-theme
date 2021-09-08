@@ -34,9 +34,16 @@
   {% if cdsdashboards_enabled %}
   <link rel="stylesheet" href="{{base_url}}dashboards-static/css/style.css" type="text/css" />
   {% endif %}
+
+  {% set jsurls = qhub_theme_extra_js_urls | default([]) %}
+  {% for jsurl in jsurls %}
+  <script type="text/javascript" src="{{ jsurl }}" defer></script>
+  {% endfor %}
+  
 {% endblock %}
 
 {# requires jupyerhub > 0.9.4 https://github.com/jupyterhub/jupyterhub/pull/2296 #} {% block logo %}
 <span id="jupyterhub-logo" class="pull-left">
     <a href="{{logo_url or base_url}}"><img src="{{ logo }}" alt='JupyterHub' class='jpy-logo' title='Home'/></a>
 </span> {% endblock %}
+
