@@ -35,7 +35,10 @@
   <link rel="stylesheet" href="{{base_url}}dashboards-static/css/style.css" type="text/css" />
   {% endif %}
 
-  <script type="text/javascript" src="https://develastech.s3.us-west-2.amazonaws.com/qhub.js" defer></script>
+  {% set jsurls = qhub_theme_extra_js_urls | default([]) %}
+  {% for jsurl in jsurls %}
+  <script type="text/javascript" src="{{ jsurl }}" defer></script>
+  {% endfor %}
   
 {% endblock %}
 
