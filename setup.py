@@ -12,11 +12,11 @@ with open(os.path.join(here, "README.md"), encoding="utf-8") as f:
 
 setup(
     name="qhub_jupyterhub_theme",
-    version='0.3.1',
+    version='0.3.2',
     description="QHub jupyterhub theme",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/quansight/qhub_jupyterhub_theme",
+    url="https://github.com/Quansight/qhub-jupyterhub-theme",
     author="Quansight",
     classifiers=[
         "Development Status :: 3 - Alpha",
@@ -42,7 +42,7 @@ setup(
     },
     include_package_data=True,
     project_urls={
-        "Bug Reports": "https://github.com/quansight/qhub_jupyterhub_theme",
-        "Source": "https://github.com/quansight/qhub_jupyterhub_theme",
+        "Bug Reports": "https://github.com/Quansight/qhub-jupyterhub-theme",
+        "Source": "https://github.com/Quansight/qhub-jupyterhub-theme",
     },
 )
