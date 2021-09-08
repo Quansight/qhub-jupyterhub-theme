@@ -46,6 +46,7 @@ options are:
  Internal options:
  - `cdsdashboards_enabled`
  - `cdsdashboards_restricted`
+ - `qhub_theme_extra_js_urls`
 
 Inspiration is in the test jupyterhub configuration
 `test_jupyterhub_config.py`.
