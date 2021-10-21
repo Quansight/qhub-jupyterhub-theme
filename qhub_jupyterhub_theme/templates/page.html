@@ -36,10 +36,17 @@
   {% endif %}
 
   {% set jsurls = qhub_theme_extra_js_urls | default([]) %}
-  {% for jsurl in jsurls %}
-  <script type="text/javascript" src="{{ jsurl }}" defer></script>
+  {% for jsdict in jsurls %}
+    
+    <script type="text/javascript" 
+      {% if jsdict is mapping -%}
+        {%- for k,v in jsdict.items() %}{{k}}="{{v | escape}}" {% endfor -%}
+      {%- else -%}
+      src="{{ jsdict | escape }}"
+    {% endif -%}
+    defer></script>
+
   {% endfor %}
-  
 {% endblock %}
 
 {# requires jupyerhub > 0.9.4 https://github.com/jupyterhub/jupyterhub/pull/2296 #} {% block logo %}

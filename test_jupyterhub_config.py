@@ -28,5 +28,8 @@ c.JupyterHub.template_vars = {
     'text_color': "#111111",
     'h1_color': "#652e8e",
     'h2_color': "#652e8e",
-    # 'qhub_theme_extra_js_urls': ['https://google.com/qhub.js']
+#    'qhub_theme_extra_js_urls': [{
+#        'src': 'https://static.zdassets.com/ekr/snippet.js?key=yourkey',
+#        'id':  'snippet'
+#    }, "https://google.com/qhub.js"]
 }
