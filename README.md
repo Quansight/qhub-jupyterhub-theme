@@ -73,3 +73,16 @@ You do not need to restart jupyterhub to see changes in `custom` and
 ```shell
 jupyterhub --config test_jupyterhub_config.py
 ```
+
+To run in VSCode, here is a launch.json config:
+```
+{
+    "name": "JupyterHub test",
+    "type": "python",
+    "request": "launch",
+    "module": "jupyterhub",
+    "args": ["-f", "./test_jupyterhub_config.py"],
+    "cwd": "${workspaceFolder}"
+}
+```
+You would need to make sure the Python virtualenv you've set up for this is active in the project.
