@@ -30,6 +30,6 @@ c.JupyterHub.template_vars = {
     'h2_color': "#652e8e",
 #    'qhub_theme_extra_js_urls': [{
 #        'src': 'https://static.zdassets.com/ekr/snippet.js?key=yourkey',
-#        'id':  'snippet'
-#    }, "https://google.com/qhub.js"]
+#        'id':  'ze-snippet'
+#    }]
 }
