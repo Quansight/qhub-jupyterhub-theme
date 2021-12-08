@@ -18,7 +18,6 @@ Add the following to the jupyterhub configuration to pickup the new
 jinja2 templates directory and static files.
 
 ```python
-import tornado.web
 from qhub_jupyterhub_theme import theme_extra_handlers, theme_template_paths
 
 c.JupyterHub.extra_handlers = theme_extra_handlers
