@@ -19,15 +19,11 @@ jinja2 templates directory and static files.
 
 ```python
 import tornado.web
-import qhub_jupyterhub_theme
+from qhub_jupyterhub_theme import theme_extra_handlers, theme_template_paths
 
-c.JupyterHub.extra_handlers = [
-    (r'/custom/(.*)', tornado.web.StaticFileHandler, {"path": qhub_jupyterhub_theme.STATIC_PATH}),
-]
+c.JupyterHub.extra_handlers = theme_extra_handlers
 
-c.JupyterHub.template_paths = [
-    qhub_jupyterhub_theme.TEMPLATE_PATH
-]
+c.JupyterHub.template_paths = theme_template_paths
 ```
 
 Finally customize the templates via the `template_vars`. Current
@@ -86,3 +82,8 @@ To run in VSCode, here is a launch.json config:
 }
 ```
 You would need to make sure the Python virtualenv you've set up for this is active in the project.
+
+## Changelog
+
+Version 0.3.3
+- Simplify the JupyterHub config (backwards-compatible)

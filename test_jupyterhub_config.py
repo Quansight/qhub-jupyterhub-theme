@@ -1,20 +1,16 @@
 from jupyterhub.auth import DummyAuthenticator
 from jupyterhub.spawner import SimpleLocalProcessSpawner
 
-import tornado.web
+from qhub_jupyterhub_theme import theme_extra_handlers, theme_template_paths
 
 c.JupyterHub.authenticator_class = DummyAuthenticator
 c.DummyAuthenticator.password = 'test'
 c.JupyterHub.spawner_class = SimpleLocalProcessSpawner
 
 # Link static files along with templates
-c.JupyterHub.extra_handlers = [
-    (r'/custom/(.*)', tornado.web.StaticFileHandler, {"path": "./qhub_jupyterhub_theme/custom"}),
-]
+c.JupyterHub.extra_handlers = theme_extra_handlers
 
-c.JupyterHub.template_paths = [
-    './qhub_jupyterhub_theme/templates',
-]
+c.JupyterHub.template_paths = theme_template_paths
 
 # QHUB will control these as ways to customize the template
 c.JupyterHub.template_vars = {
