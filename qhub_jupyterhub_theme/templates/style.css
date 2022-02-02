@@ -44,7 +44,6 @@
 .navbar.navbar-default .navbar-nav>li>a:hover,
 .navbar.navbar-default .navbar-nav>li>a:focus {
     background-color: {{ navbar_hover_color | default("#00a3b0") }};
-
 }
 
 .navbar.navbar-default .navbar-nav>.open>a,
