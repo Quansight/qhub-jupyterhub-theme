@@ -33,10 +33,12 @@ options are:
  - `logo`
  - `primary_color`
  - `secondary_color`
- - `accent_color'`
+ - `accent_color'
  - `text_color`
  - `h1_color`
  - `h2_color`
+ - `navbar_text_color`
+ - `navbar_hover_color`
 
  Internal options:
  - `cdsdashboards_enabled`

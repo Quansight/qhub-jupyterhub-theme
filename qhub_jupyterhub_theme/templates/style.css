@@ -38,18 +38,18 @@
 
 .navbar.navbar-default .navbar-nav>li>a,
 .navbar.navbar-default .navbar-text {
-    color: #E8E8E8;
+    color: {{ navbar_text_color | default("#E8E8E8") }};
 }
 
 .navbar.navbar-default .navbar-nav>li>a:hover,
 .navbar.navbar-default .navbar-nav>li>a:focus {
-    background-color: #00a3b0;
+    background-color: {{ navbar_hover_color | default("#00a3b0") }};
 }
 
 .navbar.navbar-default .navbar-nav>.open>a,
 .navbar.navbar-default .navbar-nav>.open>a:hover,
 .navbar.navbar-default .navbar-nav>.open>a:focus {
-    background-color: #00a3b0;
+    background-color: {{ navbar_hover_color | default("#00a3b0") }};
 }
 
 #login-main .auth-form-header {

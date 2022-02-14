@@ -24,5 +24,7 @@ c.JupyterHub.template_vars = {
     'text_color': "#111111",
     'h1_color': "#652e8e",
     'h2_color': "#652e8e",
+    'navbar_text_color': '#E8E8E8',
+    'narbar_hover_color': '#00a3b0',
     # 'qhub_theme_extra_js_urls': ['https://google.com/qhub.js']
 }
