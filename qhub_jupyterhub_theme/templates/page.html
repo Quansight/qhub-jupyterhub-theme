@@ -25,6 +25,14 @@
 {% endif %}
 {% endblock %}
 
+{% block footer %}
+{% if display_version %}
+<div class="version">
+  {{ version or 'v0.0.1'}}
+</span>
+{% endif %}
+{% endblock %}
+
 {% block stylesheet %}
 <link rel="stylesheet" href="{{ static_url("css/style.min.css") }}" type="text/css"/>
 <style>
@@ -39,7 +47,7 @@
   {% for jsurl in jsurls %}
   <script type="text/javascript" src="{{ jsurl }}" defer></script>
   {% endfor %}
-  
+
 {% endblock %}
 
 {# requires jupyerhub > 0.9.4 https://github.com/jupyterhub/jupyterhub/pull/2296 #} {% block logo %}

@@ -66,3 +66,17 @@
     vertical-align: top !important;
     padding-top: 60px;
 }
+
+.version {
+    position: fixed;
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    width: 100px;
+    padding: 5px;
+    background: none;
+    color: {{ primary_color | default("#4f4173") }};
+    text-align: center;
+    font-size: 16px; /* Increase font size */
+    font-family: "Panton Black Caps";
+  }
