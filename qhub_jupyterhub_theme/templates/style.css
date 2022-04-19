@@ -79,4 +79,5 @@
     text-align: center;
     font-size: 16px; /* Increase font size */
     font-family: "Panton Black Caps";
+    word-wrap: break-word;
   }
