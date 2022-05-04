@@ -85,6 +85,21 @@ To run in VSCode, here is a launch.json config:
 You would need to make sure the Python virtualenv you've set up for this is active in the project.
 
 ## Changelog
+Version 0.3.4
+- Updades to Readme
+- Expose navbar color options #12
+- Add option to display Qhub version #13
 
 Version 0.3.3
 - Simplify the JupyterHub config (backwards-compatible)
+- Added testing docs for VScode
+
+Version 0.3.2
+- Added Dashboards menu page and header
+- Added custom js tag functionality #11
+
+Version 0.3.1
+- Add text color and defaults to template options #9
+
+Version 0.3.0
+- Adds colors! :tada:
