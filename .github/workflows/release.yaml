@@ -38,4 +38,5 @@ jobs:
 
       - name: GH Release
         uses: softprops/action-gh-release@v1
-        name: Version ${{ env.RELEASE_VERSION }}
+        with:
+          name: Version ${{ env.RELEASE_VERSION }}
