@@ -85,8 +85,11 @@ To run in VSCode, here is a launch.json config:
 You would need to make sure the Python virtualenv you've set up for this is active in the project.
 
 ## Changelog
+Version 0.3.5
+- Updates to the version display style #15
+
 Version 0.3.4
-- Updades to Readme
+- Updates to Readme
 - Expose navbar color options #12
 - Add option to display Qhub version #13
 
