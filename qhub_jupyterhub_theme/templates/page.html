@@ -20,9 +20,13 @@
 </li>
 {% endif %}
 
+<li><a href="/auth">Auth</a></li>
+<li><a href="/argo">Argo</a></li>
 {% if cdsdashboards_enabled %}
-<li><a href="{{ base_url }}dashboards">Dashboards</a></li>
+    <li><a href="{{ base_url }}dashboards">Dashboards</a></li>
 {% endif %}
+<li><a href="/conda-store">Conda-Store</a></li>
+<li><a href="/monitoring">Monitoring</a></li>
 {% endblock %}
 
 {% block footer %}
