@@ -1,0 +1,113 @@
+@font-face {
+    font-family: "Atkinson Hyperlegible";
+    src: url("/hub/custom/css/AtkinsonHyperlegible-Regular.ttf");
+}
+@font-face {
+    font-family: "Atkinson Hyperlegible Bold";
+    src: url("/hub/custom/css/AtkinsonHyperlegible-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Poppins Bold";
+    src: url("/hub/custom/css/Poppins-Bold.ttf");
+}
+
+/* Global text styling */
+.main h1 {
+    color: {{ h1_color | default("#0f1015") }};
+    font-family: "Poppins Bold";
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.main h2 {
+    font-family: "Poppins Bold";
+ p   font-size: 2rem;
+    color: {{ h2_color | default("#0f1015") }};
+    margin-bottom: 20px;
+}
+
+.main p {
+    font-size: 1.7rem;
+    font-family: "Atkinson Hyperlegible", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: {{ text_color | default("#1c1d26") }}
+}
+
+p {
+    font-family: "Atkinson Hyperlegible", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+label {
+    font-family: "Atkinson Hyperlegible Bold", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+/* Navbar  */
+.navbar.navbar-default {
+    background: {{ navbar_color | default("#1c1d26") }};
+    box-shadow: 0px 1.5px 3px 0px rgba(72, 74, 94, 0.16);
+    border: None;
+}
+
+.navbar.navbar-default .navbar-nav>li>a,
+.navbar.navbar-default .navbar-text {
+    color: {{ navbar_text_color | default("#f1f1f6") }};
+}
+
+.navbar.navbar-default .navbar-nav>li>a:hover,
+.navbar.navbar-default .navbar-nav>li>a:focus {
+    background-color: {{ navbar_hover_color | default("#00a3b0") }};
+}
+
+.navbar.navbar-default .navbar-nav>.open>a,
+.navbar.navbar-default .navbar-nav>.open>a:hover,
+.navbar.navbar-default .navbar-nav>.open>a:focus {
+    background-color: {{ navbar_hover_color | default("#00a3b0") }};
+}
+
+/* Authenticator form */
+#login-main .auth-form-header {
+    background: {{ accent_color | default("#eda61d") }} !important;
+    color: {{ accent_text_color | default("#1c1d26") }} ;
+    font-family: "Atkinson Hyperlegible Bold", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.btn-jupyter {
+    background-color: {{ accent_color | default("#eda61d") }} !important;
+    border-color: {{ accent_color | default("#eda61d") }} !important;
+    color: #1c1d26;
+    font-family: "Atkinson Hyperlegible Bold", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+
+.btn-jupyter:focus, .btn-jupyter:hover {
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #cd8b13;
+    color: #1c1d26;
+    /* border: 2px solid {{ accent_color | default("#eda61d") }} !important; */
+    /* background-color: #f1f1f6!important; */
+    outline-color: #cd8b13;
+}
+
+#login-main .service-login {
+    vertical-align: top !important;
+    padding-top: 60px;
+}
+
+#login-main .form-control:focus, #login-main input[type=submit]:focus {
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #cd8b13;
+    border-color: #cd8b13;
+    outline-color: #cd8b13;
+}
+
+.version {
+    position: fixed;
+    bottom: 20px; /* Place the button at the bottom of the page */
+    left: 30px; /* Place the button 30px from the left */
+    z-index: 99; /* Make sure it does not overlap */
+    width: 100px;
+    padding: 5px;
+    background: none;
+    color: {{ primary_color | default("#cb39ed") }};
+    text-align: center;
+    font-size: 16px; /* Increase font size */
+    font-family: "Atkinson Hyperlegible";
+    word-wrap: break-word;
+  }
