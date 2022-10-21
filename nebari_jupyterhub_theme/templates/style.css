@@ -22,7 +22,7 @@
 
 .main h2 {
     font-family: "Poppins Bold";
- p   font-size: 2rem;
+    font-size: 2rem;
     color: {{ h2_color | default("#0f1015") }};
     margin-bottom: 20px;
 }
@@ -55,6 +55,7 @@ label {
 .navbar.navbar-default .navbar-nav>li>a:hover,
 .navbar.navbar-default .navbar-nav>li>a:focus {
     background-color: {{ navbar_hover_color | default("#00a3b0") }};
+    text-decoration: underline;
 }
 
 .navbar.navbar-default .navbar-nav>.open>a,
@@ -70,21 +71,6 @@ label {
     font-family: "Atkinson Hyperlegible Bold", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
-.btn-jupyter {
-    background-color: {{ accent_color | default("#eda61d") }} !important;
-    border-color: {{ accent_color | default("#eda61d") }} !important;
-    color: #1c1d26;
-    font-family: "Atkinson Hyperlegible Bold", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-}
-
-
-.btn-jupyter:focus, .btn-jupyter:hover {
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #cd8b13;
-    color: #1c1d26;
-    /* border: 2px solid {{ accent_color | default("#eda61d") }} !important; */
-    /* background-color: #f1f1f6!important; */
-    outline-color: #cd8b13;
-}
 
 #login-main .service-login {
     vertical-align: top !important;
@@ -97,6 +83,57 @@ label {
     outline-color: #cd8b13;
 }
 
+/* Buttons */
+
+.btn{
+    font-family: "Atkinson Hyperlegible Bold", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.btn-jupyter {
+    color: #1c1d26;
+    background-color: {{ accent_color | default("#eda61d") }} !important;
+    border-color: {{ accent_color | default("#eda61d") }} !important;
+}
+
+
+.btn-jupyter:focus, .btn-jupyter:hover {
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #cd8b13;
+    outline-color: #cd8b13;
+}
+
+.btn-danger{
+    color: #f1f1f6;
+    background-color: #e60f66 !important;
+    border-color: #e60f66 !important;
+}
+
+.btn-danger:focus, .btn-danger:hover {
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #b81a53;
+    outline-color: #b81a53;
+}
+
+.btn-primary{
+    color: #f1f1f6;
+    background-color: #9e17b7 !important;
+    border-color: #9e17b7 !important;
+}
+
+.btn-primary:focus, .btn-primary:hover {
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #79158a;
+    outline-color: #79158a;
+}
+.btn-success{
+    color: #1c1d26;
+    background-color: #2bd1c5 !important;
+    border-color: #2bd1c5 !important;
+}
+
+.btn-success:focus, .btn-success:hover {
+    color: #1c1d26;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #20b1a8;
+    outline-color: #20b1a8;
+}
+
 .version {
     position: fixed;
     bottom: 20px; /* Place the button at the bottom of the page */
@@ -105,9 +142,9 @@ label {
     width: 100px;
     padding: 5px;
     background: none;
-    color: {{ primary_color | default("#cb39ed") }};
+    color: {{ primary_color | default("#9e17b7") }};
     text-align: center;
     font-size: 16px; /* Increase font size */
-    font-family: "Atkinson Hyperlegible";
+    font-family: "Atkinson Hyperlegible Bold", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     word-wrap: break-word;
-  }
+}
