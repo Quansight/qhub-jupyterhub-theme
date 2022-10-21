@@ -158,6 +158,7 @@ The available configuration variables are:
 - `h2_color`: H2 color, subtitle in login page (`default: #0f1015`)
 - `navbar_text_color`: Navbar links and text color (`default: #1c1d26`)
 - `navbar_hover_color`: Hover color for navbar links (`default: #00a3b0`)
+- `display_version`: Display the JupyterHub version in the footer (`default: False`)
 
 > **Note**
 > The default colors, typefaces and logos are chosen based on the Nebari branding. You can find more about this on the [Nebari design repository](https://github.com/nebari-dev/nebari-design).
@@ -165,8 +166,8 @@ The available configuration variables are:
 :computer: You can see an example of these variables and the configuration in [`test_jupyterhub_config.py`](test_jupyterhub_config.py).
 
 Nebari internal options:
-- `cdsdashboards_enabled`
-- `cdsdashboards_restricted`
+- `cdsdashboards_enabled`: This requires [cdsdashboards](https://github.com/ideonate/cdsdashboards) to be present in the JupyterHub environment (`default: False`)
+- `cdsdashboards_restricted`: This requires [cdsdashboards](https://github.com/ideonate/cdsdashboards) to be present in the JupyterHub environment (`default: False`)
 - `nebari_theme_extra_js_urls`
 
 ## Architecture 🏗
