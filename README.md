@@ -105,7 +105,7 @@ For more details on JupyterHub templates and how they can be used check the offi
    This command will start JupyterHub with the `--config` option pointing to [`test_jupyterhub_config.py`](test_jupyterhub_config.py).
    You should be able to head to <http://127.0.0.1:8081> on your web browser and see the JupyterHub instance running.
 
-   ![Login page of a local JupyterHub instance with the Nebari JupyterHub theme - the main text reads "welcome to Nebari your open source data science platform". The subheading reads "Running in dev mode". In the middle of the page there is the JupyterHub authentication form with a "username" and "password" fields.](images/nebari-JupyterHub-login.png)
+   ![Login page of a local JupyterHub instance with the Nebari JupyterHub theme - the main text reads "welcome to Nebari your open source data science platform". The subheading reads "Running in dev mode". In the middle of the page there is the JupyterHub authentication form with a "username" and "password" fields.](images/Nebari-JupyterHub-login.png)
 
 4. You can now modify the templates and the `style.css` file and see the changes reflected in the JupyterHub instance without having to restart the server.
 
