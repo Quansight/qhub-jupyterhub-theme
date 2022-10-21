@@ -159,6 +159,9 @@ The available configuration variables are:
 - `navbar_text_color`: Navbar links and text color (`default: #1c1d26`)
 - `navbar_hover_color`: Hover color for navbar links (`default: #00a3b0`)
 
+> **Note**
+> The default colors, typefaces and logos are chosen based on the Nebari branding. You can find more about this on the [Nebari design repository](https://github.com/nebari-dev/nebari-design).
+
 :computer: You can see an example of these variables and the configuration in [`test_jupyterhub_config.py`](test_jupyterhub_config.py).
 
 Nebari internal options:
