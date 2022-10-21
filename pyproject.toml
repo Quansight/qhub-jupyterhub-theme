@@ -34,7 +34,14 @@ exclude = ["/.github", "*.md", "*.yml", ".*", ".envrc", "*.nix"]
 skip-install = false
 conda-forge = true
 command = "conda"
-dependencies = ["jupyterhub", "jupyterlab", "nodejs", "configurable-http-proxy"]
+dependencies = [
+    "jupyterhub",
+    "jupyterlab",
+    "nodejs",
+    "configurable-http-proxy",
+    "pre-commit"
+]
 
 [tool.hatch.envs.dev.scripts]
 render = "jupyterhub --config test_jupyterhub_config.py"
+install_precommit = " pre-commit install --install-hooks"
