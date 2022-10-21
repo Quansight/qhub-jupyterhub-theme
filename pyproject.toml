@@ -28,6 +28,7 @@ Homepage = "https://nebari.dev"
 
 [tool.hatch.build.targets.sdist]
 include = ["/nebari_jupyterhub_theme"]
+exclude = ["/.github", "*.md", "*.yml", ".*", ".envrc", "*.nix"]
 
 [tool.hatch.envs.dev]
 skip-install = false
