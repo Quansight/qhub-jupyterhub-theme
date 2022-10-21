@@ -17,7 +17,7 @@ c.JupyterHub.template_vars = {
     "hub_title": "Welcome to Nebari",
     "hub_subtitle": "your open source data science platform",
     "welcome": "Running in dev mode",
-    "logo": "/hub/custom/images/Nebari-logo-square.svg",
+    "logo": "/hub/custom/images/Nebari-Logo-Horizontal-Lockup-White-text.svg",
     "primary_color": "#cb39ed",
     "secondary_color": "#2bd1c5",
     "accent_color": "#eda61d",
