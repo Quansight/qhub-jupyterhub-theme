@@ -1,6 +1,6 @@
 # Making a release
 
-Following is the process that the development team follows in order to make
+This is the process that the development team follows in order to make
 a release:
 
 1. Create a new branch for the release, e.g. `release/2022.10.1`:
@@ -9,11 +9,11 @@ a release:
     git checkout -b release-0.3.6
     ```
 
-2. Document overview of changes since the last release in `CHANGELOG.md`
+2. Document an overview of changes since the last release in `CHANGELOG.md`
 3. Update the version in `pyproject.toml`
 4. Build locally using `hatch build`, and verify the contents of the artifacts
-5. Submit the PR, and merge the release into `main` once approved
-6. Prepare the release commit - checkout the branch for the release and make sure it is to to date and the repo is clean:
+5. Submit the PR, and merge the release branch into `main` once approved
+6. Prepare the release commit - checkout the branch for the release and make sure it is to date and the repo is clean:
 
    ```bash
    git checkout main
@@ -29,7 +29,7 @@ a release:
     git push origin `YY.MM.release-no`
     ```
 
-    If you need to course-correct and delete the tag
+    If you need to course-correct and delete the tag:
 
     ```bash
     git tag -d `YY.MM.release-no`
