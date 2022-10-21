@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "nebari-jupyterhub-theme"
+version = "2022.10.1"
+description = "Nebari JupyterHub theme"
+readme = "README.md"
+license = "BSD-3-Clause"
+requires-python = ">=3.8"
+maintainers = [{ name = "Nebari development team" }]
+keywords = ["jupyterhub", "theme"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Topic :: Software Development :: Build Tools",
+    "Operating System :: OS Independent",
+]
+dependencies = ["jupyterhub"]
+
+[project.urls]
+"Bug Reports" = "https://github.com/nebari-dev/nebari-jupyterhub-theme/issues"
+Homepage = "https://nebari.dev"
+"Source code" = "https://github.com/nebari-dev/nebari-jupyterhub-theme"
+
+[tool.hatch.build.targets.sdist]
+include = ["/nebari_jupyterhub_theme"]
+
+[tool.hatch.envs.dev]
+skip-install = false
+conda-forge = true
+command = "conda"
+dependencies = ["jupyterhub", "jupyterlab", "nodejs", "configurable-http-proxy"]
+
+[tool.hatch.envs.dev.scripts]
+render = "jupyterhub --config test_jupyterhub_config.py"

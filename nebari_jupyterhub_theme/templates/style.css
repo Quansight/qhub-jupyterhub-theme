@@ -1,0 +1,150 @@
+@font-face {
+    font-family: "Atkinson Hyperlegible";
+    src: url("/hub/custom/css/AtkinsonHyperlegible-Regular.ttf");
+}
+@font-face {
+    font-family: "Atkinson Hyperlegible Bold";
+    src: url("/hub/custom/css/AtkinsonHyperlegible-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Poppins Bold";
+    src: url("/hub/custom/css/Poppins-Bold.ttf");
+}
+
+/* Global text styling */
+.main h1 {
+    color: {{ h1_color | default("#0f1015") }};
+    font-family: "Poppins Bold";
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.main h2 {
+    font-family: "Poppins Bold";
+    font-size: 2rem;
+    color: {{ h2_color | default("#0f1015") }};
+    margin-bottom: 20px;
+}
+
+.main p {
+    font-size: 1.7rem;
+    font-family: "Atkinson Hyperlegible", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: {{ text_color | default("#1c1d26") }}
+}
+
+p {
+    font-family: "Atkinson Hyperlegible", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+label {
+    font-family: "Atkinson Hyperlegible Bold", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+/* Navbar  */
+.navbar.navbar-default {
+    background: {{ navbar_color | default("#1c1d26") }};
+    box-shadow: 0px 1.5px 3px 0px rgba(72, 74, 94, 0.16);
+    border: None;
+}
+
+.navbar.navbar-default .navbar-nav>li>a,
+.navbar.navbar-default .navbar-text {
+    color: {{ navbar_text_color | default("#f1f1f6") }};
+}
+
+.navbar.navbar-default .navbar-nav>li>a:hover,
+.navbar.navbar-default .navbar-nav>li>a:focus {
+    background-color: {{ navbar_hover_color | default("#00a3b0") }};
+    text-decoration: underline;
+}
+
+.navbar.navbar-default .navbar-nav>.open>a,
+.navbar.navbar-default .navbar-nav>.open>a:hover,
+.navbar.navbar-default .navbar-nav>.open>a:focus {
+    background-color: {{ navbar_hover_color | default("#00a3b0") }};
+}
+
+/* Authenticator form */
+#login-main .auth-form-header {
+    background: {{ accent_color | default("#eda61d") }} !important;
+    color: {{ accent_text_color | default("#1c1d26") }} ;
+    font-family: "Atkinson Hyperlegible Bold", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+
+#login-main .service-login {
+    vertical-align: top !important;
+    padding-top: 60px;
+}
+
+#login-main .form-control:focus, #login-main input[type=submit]:focus {
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #cd8b13;
+    border-color: #cd8b13;
+    outline-color: #cd8b13;
+}
+
+/* Buttons */
+
+.btn{
+    font-family: "Atkinson Hyperlegible Bold", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.btn-jupyter {
+    color: #1c1d26;
+    background-color: {{ accent_color | default("#eda61d") }} !important;
+    border-color: {{ accent_color | default("#eda61d") }} !important;
+}
+
+
+.btn-jupyter:focus, .btn-jupyter:hover {
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #cd8b13;
+    outline-color: #cd8b13;
+}
+
+.btn-danger{
+    color: #f1f1f6;
+    background-color: #e60f66 !important;
+    border-color: #e60f66 !important;
+}
+
+.btn-danger:focus, .btn-danger:hover {
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #b81a53;
+    outline-color: #b81a53;
+}
+
+.btn-primary{
+    color: #f1f1f6;
+    background-color: #9e17b7 !important;
+    border-color: #9e17b7 !important;
+}
+
+.btn-primary:focus, .btn-primary:hover {
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #79158a;
+    outline-color: #79158a;
+}
+.btn-success{
+    color: #1c1d26;
+    background-color: #2bd1c5 !important;
+    border-color: #2bd1c5 !important;
+}
+
+.btn-success:focus, .btn-success:hover {
+    color: #1c1d26;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #20b1a8;
+    outline-color: #20b1a8;
+}
+
+.version {
+    position: fixed;
+    bottom: 20px; /* Place the button at the bottom of the page */
+    left: 30px; /* Place the button 30px from the left */
+    z-index: 99; /* Make sure it does not overlap */
+    width: 100px;
+    padding: 5px;
+    background: none;
+    color: {{ primary_color | default("#9e17b7") }};
+    text-align: center;
+    font-size: 16px; /* Increase font size */
+    font-family: "Atkinson Hyperlegible Bold", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    word-wrap: break-word;
+}
