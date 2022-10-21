@@ -20,7 +20,7 @@ This changelog follows the format defined at: https://keepachangelog.com/en/1.0.
 
 - Updades to Readme
 
-### Added 
+### Added
 
 - Expose navbar color options #12
 - Add option to display Qhub version #13
@@ -37,14 +37,14 @@ This changelog follows the format defined at: https://keepachangelog.com/en/1.0.
 
 ## [Version 0.3.2]
 
-### Added 
+### Added
 
 - Added Dashboards menu page and header
 - Added custom js tag functionality #11
 
 ## [Version 0.3.1]
 
-### Added 
+### Added
 
 - Add text color and defaults to template options #9
 
