@@ -193,6 +193,11 @@ To guarantee a welcoming and friendly community, we require all community member
 `nebari-nebari_jupyterhub_theme` is licensed under the [BSD-3 OSI licenses](https://github.com/nebari-dev/nebari-docs/blob/main/LICENSE).
 
 ## Changelog
+Version 0.3.6
+- Extend navbar links #16
+
+Version 0.3.5
+- Updates to the version display style #15
 
 Version 0.3.4
 - Updades to Readme
@@ -212,6 +217,3 @@ Version 0.3.1
 
 Version 0.3.0
 - Adds colors! :tada:
-
-<!-- links -->
-[theme-repo]: https://github.com/nebari-dev/nebari-jupyterhub-theme
