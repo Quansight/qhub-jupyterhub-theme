@@ -58,9 +58,9 @@ For more details on JupyterHub templates and how they can be used check the offi
 
 1. Clone this repository to your local computer:
 
-  ```bash
-  git clone https://github.com/<your-username>/nebari-jupyterhub-theme.git
-  ```
+   ```bash
+   git clone https://github.com/<your-username>/nebari-jupyterhub-theme.git
+   ```
 
 1. From the root of the project, create a new development environment with hatch:
 
@@ -193,3 +193,6 @@ To guarantee a welcoming and friendly community, we require all community member
 ## License 📄
 
 `nebari-nebari_jupyterhub_theme` is licensed under the [BSD-3 OSI licenses](https://github.com/nebari-dev/nebari-docs/blob/main/LICENSE).
+
+<!-- links -->
+[theme-repo]: https://github.com/nebari-dev/nebari-jupyterhub-theme
