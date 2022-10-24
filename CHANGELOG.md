@@ -18,7 +18,7 @@ This changelog follows the format defined at: https://keepachangelog.com/en/1.0.
 
 ### Documentation
 
-- Updades to Readme
+- Updates to Readme
 
 ### Added
 
