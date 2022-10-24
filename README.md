@@ -30,7 +30,6 @@ For more details on JupyterHub templates and how they can be used check the offi
   - [Contributing to `nebari-nebari_jupyterhub_theme`👩‍💻](#contributing-to-nebari-nebari_jupyterhub_theme)
   - [Code of Conduct 📖](#code-of-conduct-)
   - [License 📄](#license-)
-  - [Changelog](#changelog)
 
 ## Development 👩🏻‍💻
 
@@ -112,6 +111,8 @@ For more details on JupyterHub templates and how they can be used check the offi
 > **Note**
 > The values specified in `c.JupyterHub.template_vars` will overwrite the default values set in `nebari_jupyterhub_theme/templates`
 
+The release process for this package is documented in [`RELEASE.md`](RELEASE.md).
+
 ## Using `nebari_jupyterhub_theme` on your JupyterHub instance 📦
 
 1. Install `nebari_jupyterhub_theme`:
@@ -179,6 +180,7 @@ This repository is structured as follows:
 - [nebari_jupyterhub_theme](nebari_jupyterhub_theme/): Python package containing the `jinja2` templates and static files
 - [pyproject.toml](pyproject.toml): Python project configuration file
 - [test_jupyterhub_config.py](test_jupyterhub_config.py): Example JupyterHub configuration file - used by `hatch run dev:render` to start a local JupyterHub instance for local development.
+- [RELEASE.md](RELEASE.md): Release process documentation
 
 ## Contributing to `nebari-nebari_jupyterhub_theme`👩‍💻
 
@@ -191,29 +193,3 @@ To guarantee a welcoming and friendly community, we require all community member
 ## License 📄
 
 `nebari-nebari_jupyterhub_theme` is licensed under the [BSD-3 OSI licenses](https://github.com/nebari-dev/nebari-docs/blob/main/LICENSE).
-
-## Changelog
-Version 0.3.6
-- Extend navbar links #16
-
-Version 0.3.5
-- Updates to the version display style #15
-
-Version 0.3.4
-- Updades to Readme
-- Expose navbar color options #12
-- Add option to display Qhub version #13
-
-Version 0.3.3
-- Simplify the JupyterHub config (backwards-compatible)
-- Added testing docs for VScode
-
-Version 0.3.2
-- Added Dashboards menu page and header
-- Added custom js tag functionality #11
-
-Version 0.3.1
-- Add text color and defaults to template options #9
-
-Version 0.3.0
-- Adds colors! :tada:

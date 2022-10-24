@@ -2,3 +2,5 @@ name: jupyterhub-theme
 dependencies:
   - jupyterhub
   - jupyterlab
+  - nodejs
+  - configurable-http-proxy

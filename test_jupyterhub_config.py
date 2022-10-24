@@ -1,3 +1,6 @@
+# Copyright (c) Nebari Development Team.
+# Distributed under the terms of the Modified BSD License.
+
 from jupyterhub.auth import DummyAuthenticator
 from jupyterhub.spawner import SimpleLocalProcessSpawner
 
@@ -28,5 +31,5 @@ c.JupyterHub.template_vars = {
     "narbar_hover_color": "#00a3b0",
     "navbar_color": "#1c1d26",
     # "display_version": "True",
-    # "nebari_theme_extra_js_urls": ["https://google.com/qhub.js"],
+    # "nebari_theme_extra_js_urls": ["https://google.com/nebari.js"],
 }
