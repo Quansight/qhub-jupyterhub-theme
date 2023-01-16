@@ -47,3 +47,10 @@ dependencies = [
 [tool.hatch.envs.dev.scripts]
 render = "jupyterhub --config test_jupyterhub_config.py"
 install_precommit = " pre-commit install --install-hooks"
+
+# https://www.djlint.com/docs/linter/
+[tool.djlint]
+ignore = "T001,T028,H006"
+max_line_length = 120
+format_css = true
+format_js = true

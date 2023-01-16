@@ -71,9 +71,7 @@ label {
 #login-main .auth-form-header {
     background: {{ accent_color | default("#eda61d") }} !important;
     color: {{ accent_text_color | default("#1c1d26") }} ;
-    font-family: "Atkinson Hyperlegible Bold", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-}
-
+    font-family: "Atkinson Hyperlegible Bold", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;}
 
 #login-main .service-login {
     vertical-align: top !important;
@@ -95,8 +93,7 @@ label {
 .btn-jupyter {
     color: #1c1d26;
     background-color: {{ accent_color | default("#eda61d") }} !important;
-    border-color: {{ accent_color | default("#eda61d") }} !important;
-}
+    border-color: {{ accent_color | default("#eda61d") }} !important;}
 
 
 .btn-jupyter:focus, .btn-jupyter:hover {
