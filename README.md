@@ -180,6 +180,7 @@ This repository is structured as follows:
 - [pyproject.toml](pyproject.toml): Python project configuration file
 - [test_jupyterhub_config.py](test_jupyterhub_config.py): Example JupyterHub configuration file - used by `hatch run dev:render` to start a local JupyterHub instance for local development.
 - [RELEASE.md](RELEASE.md): Release process documentation
+- [.pre-commit-config.yaml](.pre-commit-config.yaml): Configuration file for the [pre-commit](https://pre-commit.com/) tool (note we use pre-commit CI to automatically run pre-commit on all PRs and update the hooks)
 
 ## Contributing to `nebari-nebari_jupyterhub_theme`👩‍💻
 
