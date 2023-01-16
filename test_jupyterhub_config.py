@@ -28,7 +28,7 @@ c.JupyterHub.template_vars = {
     "h1_color": "#0f1015",
     "h2_color": "#0f1015",
     "navbar_text_color": "#E8E8E8",
-    "narbar_hover_color": "#00a3b0",
+    "navbar_hover_color": "#20b1a8",
     "navbar_color": "#1c1d26",
     # "display_version": "True",
     # "nebari_theme_extra_js_urls": ["https://google.com/nebari.js"],

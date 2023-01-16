@@ -15,49 +15,106 @@
     src: url("/hub/custom/css/Poppins-Bold.ttf");
 }
 
+:root {
+    /* Typography */
+    --base-font-family: "Atkinson Hyperlegible", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    --headings-font-family: "Poppins Bold", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+    --font-size-base: 100%;
+    --line-height-base: 1.65;
+    --headings-line-height: 1.25;
+    --h1-font-size: 2rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --h4-font-size: 1rem;
+    --h5-font-size: 0.875rem;
+    --h6-font-size: 0.85rem;
+
+    /*  Colors */
+    --heading-color: {{ h1_color | default("#0f1015") }};
+    --text-color: {{ text_color | default("#1c1d26") }};
+    --link-text-color: {{ text_color | default("#1c1d26") }};
+    --primary-color: {{ primary_color | default("#9e17b7") }};
+    --primary-color-dark: #79158a;
+    --secondary-color: {{ secondary_color | default("#2bd1c5") }};
+    --secondary-color-dark: #20b1a8;
+    --accent-color: {{ accent_color | default("#eda61d") }};
+    --accent-color-dark: #a16d14;
+    --navbar-background-color: {{ navbar_color | default("#1c1d26") }};
+    --navbar-text-color: {{ navbar_text_color | default("#f1f1f6") }};
+    --navbar-hover-color: {{ navbar_hover_color | default("#db96f3") }};
+    --link-hover-color: {{ accent_color | default("#cb39ed") }};
+    --light-text-color: #f1f1f6;
+    --danger-color: #e60f66;
+    --danger-color-dark: #b81a53;
+
+    /* Shadow */
+    --button-hover-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px;
+}
+
 /* Global text styling */
-.main h1 {
-    color: {{ h1_color | default("#0f1015") }};
-    font-family: "Poppins Bold";
+html {
+    color: var(--text-color);
+    font: var(--font-size-base)/var(--ifm-line-height-base) var(--font-family-base);}
+
+h1,
+h2,
+h3,
+h4{
+    color: var(--heading-color);
+    font-family: var(--headings-font-family);
+    line-height: var(--headings-line-height);
+}
+
+h1 {
     margin-top: 30px;
     margin-bottom: 30px;
+    font-size: var(--h1-font-size);
 }
 
-.main h2 {
-    font-family: "Poppins Bold";
-    font-size: 2rem;
-    color: {{ h2_color | default("#0f1015") }};
+h2 {
+    font-size: var(--h2-font-size);
     margin-bottom: 20px;
+    color:  {{ h2_color | default("#0f1015") }};
 }
 
-.main p {
-    font-size: 1.7rem;
-    font-family: "Atkinson Hyperlegible", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    color: {{ text_color | default("#1c1d26") }}
-}
-
-p {
-    font-family: "Atkinson Hyperlegible", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-}
 label {
-    font-family: "Atkinson Hyperlegible Bold", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: var(--base-font-family);
+}
+
+a{
+    color: var(--link-text-color);
+    text-decoration-color: CurrentColor;
+    text-underline-offset: 1px;
+}
+
+a:hover{
+    color: var(--link-hover-color);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
 }
 
 /* Navbar  */
+.nav{
+    margin-left:10px;
+}
+
 .navbar.navbar-default {
-    background: {{ navbar_color | default("#1c1d26") }};
+    background: var(--navbar-background-color);
     box-shadow: 0px 1.5px 3px 0px rgba(72, 74, 94, 0.16);
     border: None;
 }
 
 .navbar.navbar-default .navbar-nav>li>a,
 .navbar.navbar-default .navbar-text {
-    color: {{ navbar_text_color | default("#f1f1f6") }};
+    color: var(--navbar-text-color);
+    font-size: 1rem;
+    text-decoration: none;
 }
 
 .navbar.navbar-default .navbar-nav>li>a:hover,
 .navbar.navbar-default .navbar-nav>li>a:focus {
-    background-color: {{ navbar_hover_color | default("#00a3b0") }};
+    color: var(--navbar-hover-color);
     text-decoration: underline;
 }
 
@@ -69,9 +126,9 @@ label {
 
 /* Authenticator form */
 #login-main .auth-form-header {
-    background: {{ accent_color | default("#eda61d") }} !important;
+    background: var(--accent-color) !important;
     color: {{ accent_text_color | default("#1c1d26") }} ;
-    font-family: "Atkinson Hyperlegible Bold", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;}
+    font-family: var(--base-font-family);}
 
 #login-main .service-login {
     vertical-align: top !important;
@@ -79,7 +136,7 @@ label {
 }
 
 #login-main .form-control:focus, #login-main input[type=submit]:focus {
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #cd8b13;
+    box-shadow: var(--button-hover-shadow) #cd8b13;
     border-color: #cd8b13;
     outline-color: #cd8b13;
 }
@@ -87,51 +144,64 @@ label {
 /* Buttons */
 
 .btn{
-    font-family: "Atkinson Hyperlegible Bold", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: var(--base-font-family);
+}
+
+.btn-xs{
+    font-size: 0.8rem;
+}
+
+.btn{
+    font-size: 1rem;
+}
+
+.btn-lg{
+    font-size: 1.25rem;
 }
 
 .btn-jupyter {
-    color: #1c1d26;
-    background-color: {{ accent_color | default("#eda61d") }} !important;
-    border-color: {{ accent_color | default("#eda61d") }} !important;}
+    color: var(--text-color);
+    background-color: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;}
 
 
 .btn-jupyter:focus, .btn-jupyter:hover {
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #cd8b13;
-    outline-color: #cd8b13;
+    color: var(--text-color);
+    box-shadow: var(--button-hover-shadow) var(--accent-color-dark);
+    outline-color: var(--accent-color-dark);
 }
 
 .btn-danger{
-    color: #f1f1f6;
-    background-color: #e60f66 !important;
-    border-color: #e60f66 !important;
+    color: var(--light-text-color);
+    background-color: var(--danger-color) !important;
+    border-color: var(--danger-color) !important;
 }
 
 .btn-danger:focus, .btn-danger:hover {
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #b81a53;
-    outline-color: #b81a53;
+    box-shadow: var(--button-hover-shadow) var(--danger-color-dark);
+    outline-color: var(--danger-color-dark);
 }
 
 .btn-primary{
-    color: #f1f1f6;
-    background-color: #9e17b7 !important;
-    border-color: #9e17b7 !important;
+    color: var(--light-text-color);
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
 }
 
 .btn-primary:focus, .btn-primary:hover {
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #79158a;
-    outline-color: #79158a;
+    box-shadow: var(--button-hover-shadow) var(--primary-color-dark);
+    outline-color: var(--primary-color-dark);
 }
 .btn-success{
-    color: #1c1d26;
-    background-color: #2bd1c5 !important;
-    border-color: #2bd1c5 !important;
+    color: var(--text-color);
+    background-color: var(--secondary-color) !important;
+    border-color: var(--secondary-color) !important;
 }
 
 .btn-success:focus, .btn-success:hover {
-    color: #1c1d26;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #20b1a8;
-    outline-color: #20b1a8;
+    color: var(--text-color);
+    box-shadow: var(--button-hover-shadow) var(--secondary-color-dark);
+    outline-color: var(--secondary-color-dark);
 }
 
 .version {
@@ -139,12 +209,31 @@ label {
     bottom: 20px; /* Place the button at the bottom of the page */
     left: 30px; /* Place the button 30px from the left */
     z-index: 99; /* Make sure it does not overlap */
-    width: 100px;
+    width: auto;
     padding: 5px;
     background: none;
-    color: {{ primary_color | default("#9e17b7") }};
+    color: var(--primary-color);
     text-align: center;
-    font-size: 16px; /* Increase font size */
-    font-family: "Atkinson Hyperlegible Bold", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 1rem; /* Increase font size */
+    font-family: var(--base-font-family);
     word-wrap: break-word;
+}
+
+/* cdsdashboards */
+#help-floater{
+    color: var(--light-text-color);
+    background: var(--primary-color);
+    font-family: var(--base-font-family);
+}
+
+ul.dashboard-selectable-tabs li{
+    color: var(--text-color);
+    font-family: var(--base-font-family);
+    text-decoration: underline;
+}
+
+ul.dashboard-selectable-tabs li.active{
+    color: var(--text-color);
+    font-family:var(--base-font-family);
+    background-color: var(--accent-color) !important;
 }
