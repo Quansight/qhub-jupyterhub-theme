@@ -5,9 +5,11 @@
 
 {% block nav_bar_left_items %}
 
-<li><a href="{{base_url}}home{% if cdsdashboards_restricted %}-cds{% endif %}">Home</a></li>
+<!-- Default nav bar items -->
+<li><a href="{{base_url}}home {% if cdsdashboards_restricted %}-cds{% endif %}">Home</a></li>
 <li><a href="{{base_url}}token">Token</a></li>
 
+<!-- Access to admin dashboard -->
 {% if user.admin %}
 <li><a href="{{base_url}}admin">Admin</a></li>
 {% endif %}
@@ -23,22 +25,24 @@
 </li>
 {% endif %}
 
-<li><a href="/auth">User Management</a></li>
-<li><a href="/argo">Argo Workflows</a></li>
+<!-- Custom integrations-->
+<li><a href="{{ url_for(auth) }}">User Management</a></li>
+<li><a href="{{ url_for(argo) }}">Argo Workflows</a></li>
 {% if cdsdashboards_enabled %}
     <li><a href="{{ base_url }}dashboards">Dashboards</a></li>
 {% endif %}
-<li><a href="/conda-store">Environment Management</a></li>
-<li><a href="/monitoring">Monitoring</a></li>
-{% endblock %}
+<li><a href=" {{ url_for (conda-store) }}">Environment Management</a></li>
+<li><a href="{{ url_for (monitoring) }}">Monitoring</a></li>
+
+{% endblock nav_bar_left_items %}
 
 {% block footer %}
 {% if display_version %}
 <div class="version">
   {{ version or 'v0.0.1'}}
-</span>
+</div>
 {% endif %}
-{% endblock %}
+{% endblock footer%}
 
 {% block stylesheet %}
 <link rel="stylesheet" href="{{ static_url("css/style.min.css") }}" type="text/css"/>
@@ -55,9 +59,12 @@
   <script type="text/javascript" src="{{ jsurl }}" defer></script>
   {% endfor %}
 
-{% endblock %}
+{% endblock stylesheet %}
 
-{# requires jupyerhub > 0.9.4 https://github.com/jupyterhub/jupyterhub/pull/2296 #} {% block logo %}
+<!-- {# requires jupyerhub > 0.9.4 https://github.com/jupyterhub/jupyterhub/pull/2296 #}  -->
+{% block logo %}
 <span id="jupyterhub-logo" class="pull-left">
-    <a href="{{logo_url or base_url}}"><img src="{{ logo }}" alt='JupyterHub logo - Nebari Home' class='jpy-logo' title='Home'/></a>
-</span> {% endblock %}
+  <!-- ignore: H006 since we inherit from Hub -->
+    <a href="{{logo_url or base_url}}"><img src="{{ logo }}" alt="JupyterHub logo - Nebari Home" class="jpy-logo" title="Home"/></a>
+</span>
+{% endblock logo%}
