@@ -26,13 +26,13 @@
 {% endif %}
 
 <!-- Custom integrations-->
-<li><a href="{{ url_for(auth) }}">User Management</a></li>
-<li><a href="{{ url_for(argo) }}">Argo Workflows</a></li>
+<li><a href="/auth">User Management</a></li>
+<li><a href="/argo">Argo Workflows</a></li>
 {% if cdsdashboards_enabled %}
     <li><a href="{{ base_url }}dashboards">Dashboards</a></li>
 {% endif %}
-<li><a href=" {{ url_for (conda-store) }}">Environment Management</a></li>
-<li><a href="{{ url_for (monitoring) }}">Monitoring</a></li>
+<li><a href="/conda-store">Environment Management</a></li>
+<li><a href="/monitoring">Monitoring</a></li>
 
 {% endblock nav_bar_left_items %}
 
