@@ -50,13 +50,11 @@
 
     /* Miscellaneous */
     --button-hover-shadow: 0 3px 0 var(--text-color);
-    --hover-overlay: rgba(0, 0, 0, 0.05);
     --focus-width: 2px;
-    --outline-offset: 0.25rem;
     --focus-shadow: 5px 5px 7px rgba(0, 0, 0, 0.1);
+    --outline-offset: 0.25rem;
     --outline-reset: 1px solid transparent;
     --text-decoration-thickness: 2px;
-
 }
 
 /* Global text styling */
