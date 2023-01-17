@@ -86,7 +86,7 @@ For more details on JupyterHub templates and how they can be used check the offi
    └─────────┴─────────┴─────────────────────────┴─────────┘
    ```
 
-2. Initialize a new shell within the development environment:
+1. Initialize a new shell within the development environment:
 
    ```bash
    hatch --env dev shell
@@ -94,7 +94,7 @@ For more details on JupyterHub templates and how they can be used check the offi
 
    To leave the environment you can type `exit` on your terminal.
 
-3. Initialize a JupyterHub instance for development:
+1. Initialize a JupyterHub instance for development:
 
    ```bash
    hatch run dev:render
@@ -105,7 +105,10 @@ For more details on JupyterHub templates and how they can be used check the offi
 
    ![Login page of a local JupyterHub instance with the Nebari JupyterHub theme - the main text reads "welcome to Nebari your open source data science platform". The subheading reads "Running in dev mode". In the middle of the page there is the JupyterHub authentication form with a "username" and "password" fields.](images/Nebari-JupyterHub-login.png)
 
-4. You can now modify the templates and the `style.css` file and see the changes reflected in the JupyterHub instance without having to restart the server.
+   > **Note**
+   > From here you can log in with any username and the password set in the `c.DummyAuthenticator.password` configuration option in [`test_jupyterhub_config.py`](test_jupyterhub_config.py). Also note not all the extensions and integrations are available in this `dev` mode.
+
+1. You can now modify the templates and the `style.css` file and see the changes reflected in the JupyterHub instance without having to restart the server.
 
 > **Note**
 > The values specified in `c.JupyterHub.template_vars` will overwrite the default values set in `nebari_jupyterhub_theme/templates`
@@ -150,14 +153,14 @@ The available configuration variables are:
 - `hub_subtitle`: Subtitle shown under the main instance Title. (H2 heading, `default: ""`)
 - `welcome`: Welcome message on the login page (`default:  Welcome to Nebari. For more information about Nebari, visit <a href="https://nebari.dev/">https://nebari.dev</a>`)
 - `logo`: Logo displayed on the navbar (`default: Nebari logomark`)
-- `primary_color`: Primary color (`default: #cb39ed`)
-- `secondary_color`: Secondary color (`default: #2bd1c5`)
-- `accent_color`: Accent color (`default: #eda61d`)
-- `text_color`: Text color (`default: #1c1d26`)
-- `h1_color`: H1 color, main Title in login page (`default: #0f1015`)
-- `h2_color`: H2 color, subtitle in login page (`default: #0f1015`)
-- `navbar_text_color`: Navbar links and text color (`default: #1c1d26`)
-- `navbar_hover_color`: Hover color for navbar links (`default: #00a3b0`)
+- `primary_color`: Primary color (`default:` `#9e17b7`)
+- `secondary_color`: Secondary color (`default:` `#2bd1c5`)
+- `accent_color`: Accent color (`default:` `#eda61d`)
+- `text_color`: Text color (`default:` `#1c1d26`)
+- `h1_color`: H1 color, main Title in login page (`default:` `#0f1015`)
+- `h2_color`: H2 color, subtitle in login page (`default:` `#0f1015`)
+- `navbar_text_color`: Navigation bar links and text color (`default:` `#1c1d26`)
+- `navbar_hover_color`: Hover color for navigation bar links (`default:` `#00a3b0`)
 - `display_version`: Display the JupyterHub version in the footer (`default: False`)
 
 > **Note**
