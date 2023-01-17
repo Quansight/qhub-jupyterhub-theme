@@ -49,7 +49,7 @@
     --danger-color-dark: #b81a53;
 
     /* Miscellaneous */
-    --button-hover-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px;
+    --button-hover-shadow: 0 3px 0 var(--text-color);
     --hover-overlay: rgba(0, 0, 0, 0.05);
     --focus-width: 2px;
     --outline-offset: 0.25rem;
@@ -95,12 +95,6 @@ a{
     text-underline-offset: 1px;
 }
 
-a:hover{
-    color: var(--link-hover-color);
-    text-decoration: underline;
-    text-decoration-thickness: var(--text-decoration-thickness);
-}
-
 /* Navbar  */
 .nav{
     margin-left:10px;
@@ -116,17 +110,6 @@ a:hover{
 .navbar.navbar-default .navbar-text {
     color: var(--navbar-text-color);
     text-decoration: none;
-}
-
-.navbar.navbar-default .navbar-nav>li>a:hover {
-    color: var(--text-color);
-    background-color: var(--navbar-hover-color);
-    text-decoration: underline;
-}
-
-.navbar.navbar-default .navbar-nav>.open>a,
-.navbar.navbar-default .navbar-nav>.open>a:hover{
-    background-color: {{ navbar_hover_color | default("#00a3b0") }};
 }
 
 /* Authenticator form */
@@ -173,10 +156,16 @@ a:focus {
     box-shadow: inset 0 0 0 var(--focus-width) var(--text-color);
 }
 
+.btn-jupyter:focus{
+    /* need to overwrite here otherwise there is not enough contrast */
+    color: var(--text-color);
+}
+
 #jupyterhub-logo a:focus,
 .navbar-btn:focus{
     outline: var(--focus-width) solid var(--accent-color);
     outline-offset: var(--outline-offset);
+    /* ensure the full div is not in the accent colour */
     background-color: var(--navbar-color);
     box-shadow: var(--focus-shadow);
     color: var(--navbar-text-color);
@@ -190,7 +179,6 @@ input[type="text"]:focus {
     box-shadow: inset 0 0 0 1px var(--text-color);
     outline: 0;
     outline-offset: 0;
-
     outline: var(--focus-width) solid var(--accent-color);
     /* Ensure outline appears outside of the element */
     outline-offset: 0;
@@ -198,7 +186,53 @@ input[type="text"]:focus {
     box-shadow: inset 0 0 0 var(--focus-width);
 }
 
+/* Hover states */
+a:hover{
+    color: var(--link-hover-color);
+    text-decoration: underline;
+    text-decoration-thickness: var(--text-decoration-thickness);
+}
+
+.navbar.navbar-default .navbar-nav>li>a:hover {
+    color: var(--text-color);
+    background-color: var(--navbar-hover-color);
+    text-decoration: underline;
+}
+
+.navbar.navbar-default .navbar-nav>.open>a,
+.navbar.navbar-default .navbar-nav>.open>a:hover{
+    background-color: {{ navbar_hover_color | default("#00a3b0") }};
+}
+
+
+.btn:hover{
+    box-shadow: var(--button-hover-shadow);
+}
+
+.btn-jupyter:hover {
+    color: var(--text-color);
+    outline-color: var(--accent-color-dark);
+}
+
+.btn-danger:hover {
+    background-color: var(--danger-color-dark)!important;
+    border-color: var(--danger-color-dark)!important;
+}
+
+.btn-primary:hover,
+#help-floater:hover {
+    background-color: var(--primary-color-dark)!important;
+    border-color: var(--primary-color-dark)!important;
+}
+
+.btn-success:hover {
+    color: var(--text-color);
+    background-color: var(--secondary-color-dark)!important;
+    border-color: var(--secondary-color-dark)!important;
+}
+
 /* Buttons */
+/* Making buttons font larger, the defaults are too small */
 .btn{
     font-family: var(--base-font-family);
 }
@@ -220,25 +254,10 @@ input[type="text"]:focus {
     background-color: var(--accent-color) !important;
     border-color: var(--accent-color) !important;}
 
-.btn-jupyter:hover {
-    color: var(--text-color);
-    box-shadow: var(--button-hover-shadow) var(--accent-color-dark);
-    outline-color: var(--accent-color-dark);
-}
-
-.btn-jupyter:focus{
-    color: var(--text-color);
-}
-
 .btn-danger{
     color: var(--light-text-color);
     background-color: var(--danger-color) !important;
     border-color: var(--danger-color) !important;
-}
-
-.btn-danger:hover {
-    box-shadow: var(--button-hover-shadow) var(--danger-color-dark);
-    outline-color: var(--danger-color-dark);
 }
 
 .btn-primary,
@@ -247,21 +266,11 @@ input[type="text"]:focus {
     background-color: var(--primary-color) !important;
     border-color: var(--primary-color) !important;
 }
-.btn-primary:hover,
-#help-floater:hover {
-    box-shadow: var(--button-hover-shadow) var(--primary-color-dark);
-    outline-color: var(--primary-color-dark);
-}
+
 .btn-success{
     color: var(--text-color);
     background-color: var(--secondary-color) !important;
     border-color: var(--secondary-color) !important;
-}
-
-.btn-success:hover {
-    color: var(--text-color);
-    box-shadow: var(--button-hover-shadow) var(--secondary-color-dark);
-    outline-color: var(--secondary-color-dark);
 }
 
 .version {
@@ -283,7 +292,6 @@ input[type="text"]:focus {
 #help-floater{
     color: var(--light-text-color);
     background: var(--primary-color);
-    font-family: var(--base-font-family);
     font-family: var(--base-font-family);
 }
 
