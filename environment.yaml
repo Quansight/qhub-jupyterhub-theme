@@ -1,4 +1,6 @@
 name: jupyterhub-theme
+channels:
+- conda-forge
 dependencies:
   - jupyterhub
   - jupyterlab

@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "nebari-jupyterhub-theme"
-version = "2022.10.1"
+version = "2023.1.1"
 description = "Nebari JupyterHub theme"
 readme = "README.md"
 license = "BSD-3-Clause"
